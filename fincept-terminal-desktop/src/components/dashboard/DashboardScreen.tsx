@@ -12,36 +12,7 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import ForumTab from '@/components/tabs/ForumTab';
-import DashboardTab from '@/components/tabs/DashboardTab';
-import MarketsTab from '@/components/tabs/MarketsTab';
-import NewsTab from '@/components/tabs/NewsTab';
-import WatchlistTab from '@/components/tabs/WatchlistTab';
-import GeopoliticsTab from '@/components/tabs/GeopoliticsTab';
-import ChatTab from '@/components/tabs/ChatTab';
-import ProfileTab from '@/components/tabs/ProfileTab';
-import MarketplaceTab from '@/components/tabs/MarketplaceTab';
-import PortfolioTab from '@/components/tabs/PortfolioTab';
-import EquityResearchTab from '@/components/tabs/EquityResearchTab';
-import ScreenerTab from '@/components/tabs/ScreenerTab';
-import DBnomicsTab from '@/components/tabs/DBnomicsTab';
-import EconomicsTab from '@/components/tabs/EconomicsTab';
-import CodeEditorTab from '@/components/tabs/CodeEditorTab';
-import DocsTab from '@/components/tabs/DocsTab';
-import MaritimeTab from '@/components/tabs/MaritimeTab';
-import SettingsTab from '@/components/tabs/SettingsTab';
-import NodeEditorTab from '@/components/tabs/NodeEditorTab';
-import DataSourcesTab from '@/components/tabs/data-sources/DataSourcesTab';
-import DataMappingTab from '@/components/tabs/data-mapping/DataMappingTab';
-import MCPTab from '@/components/tabs/mcp';
-import FyersTab from '@/components/tabs/fyers';
-import SupportTicketTab from '@/components/tabs/SupportTicketTab';
-import PolygonEqTab from '@/components/tabs/PolygonEqTab';
-import { TradingTab } from '@/components/tabs/TradingTab';
-import ReportBuilderTab from '@/components/tabs/ReportBuilderTab';
-import BacktestingTab from '@/components/tabs/BacktestingTab';
 import AutotradeTab from '@/components/tabs/AutotradeTab';
-import RecordedContextsManager from '@/components/common/RecordedContextsManager';
 
 // Eagerly loaded tabs (needed immediately)
 import ForumTab from '@/components/tabs/forum';
@@ -612,7 +583,6 @@ function FinxeptTerminalContent() {
     { label: 'Alternative Investments', action: () => setActiveTab('alternative-investments') },
     { label: 'Geopolitics', action: () => setActiveTab('geopolitics') },
     { label: 'Maritime Intelligence', action: () => setActiveTab('maritime') },
-<<<<<<< HEAD
     { label: '3D Visualization', action: () => setActiveTab('3d-viz') },
     { label: 'Market Simulation', action: () => setActiveTab('market-sim') },
     // Tools
@@ -623,26 +593,6 @@ function FinxeptTerminalContent() {
     { label: 'MCP Servers', action: () => setActiveTab('mcp') },
     { label: 'QuantLib', action: () => setActiveTab('quantlib-core') },
     { label: 'Data Sources', action: () => setActiveTab('datasources') },
-=======
-    { label: 'News Feed', shortcut: 'F3', action: () => setActiveTab('news') }
-  ];
-
-  const tradingMenuItems = [
-    { label: 'Trading Desk', shortcut: 'F9', action: () => setActiveTab('trading') },
-    { label: 'Autotrade', action: () => setActiveTab('autotrade') },
-    { label: 'Fyers Broker', action: () => setActiveTab('fyers') },
-    { label: 'Portfolio', shortcut: 'F4', action: () => setActiveTab('portfolio') },
-    { label: 'Backtesting', shortcut: 'F5', action: () => setActiveTab('backtesting') },
-    { label: 'Watchlist', shortcut: 'F6', action: () => setActiveTab('watchlist') }
-  ];
-
-  const toolsMenuItems = [
-    { label: 'AI Assistant', shortcut: 'F10', action: () => setActiveTab('chat') },
-    { label: 'MCP Servers', action: () => setActiveTab('mcp'), separator: true },
-    { label: 'Node Editor', action: () => setActiveTab('nodes') },
-    { label: 'Code Editor', action: () => setActiveTab('code') },
-    { label: 'Data Sources', action: () => setActiveTab('datasources'), separator: true },
->>>>>>> b6b79052 (Add Autotrade integration tab and components)
     { label: 'Data Mapping', action: () => setActiveTab('datamapping') },
     { label: 'Report Builder', action: () => setActiveTab('reportbuilder') },
     { label: 'Excel Workbook', action: () => setActiveTab('excel') },
@@ -736,7 +686,6 @@ function FinxeptTerminalContent() {
 
         {/* Center: Command Bar + Info */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flex: 1, justifyContent: 'center', minWidth: 0, overflow: 'hidden' }}>
-          <CommandBar onExecuteCommand={setActiveTab} />
           <div className="hidden-on-small" style={{ width: '1px', height: '14px', backgroundColor: '#525252', flexShrink: 0 }}></div>
           <div className="hidden-on-small"><HeaderTimeDisplay /></div>
           <div className="hidden-on-medium" style={{ width: '1px', height: '14px', backgroundColor: '#525252', flexShrink: 0 }}></div>
@@ -896,7 +845,6 @@ function FinxeptTerminalContent() {
               .hidden-on-small { display: none !important; }
             }
           `}</style>
-<<<<<<< HEAD
             <Tabs value={activeTab} onValueChange={setActiveTab} className="h-full">
               <TabsList style={{
                 backgroundColor: 'transparent',
@@ -1011,114 +959,6 @@ function FinxeptTerminalContent() {
               </TabsList>
             </Tabs>
           </div>
-=======
-          <Tabs value={activeTab} onValueChange={setActiveTab} className="h-full">
-            <TabsList style={{
-              backgroundColor: 'transparent',
-              border: 'none',
-              padding: '2px 4px',
-              height: '100%',
-              justifyContent: 'flex-start',
-              borderRadius: '0',
-              flexWrap: 'nowrap',
-              width: 'max-content',
-              minWidth: '100%'
-            }}>
-            {/* PRIMARY TABS - F1 to F12 */}
-            <TabsTrigger
-              value="dashboard"
-              style={activeTab === 'dashboard' ? tabStyles.active : tabStyles.default}
-              title="Dashboard (F1)"
-            >
-              Dashboard
-            </TabsTrigger>
-            <TabsTrigger
-              value="markets"
-              style={activeTab === 'markets' ? tabStyles.active : tabStyles.default}
-              title="Markets (F2)"
-            >
-              Markets
-            </TabsTrigger>
-            <TabsTrigger
-              value="news"
-              style={activeTab === 'news' ? tabStyles.active : tabStyles.default}
-              title="News (F3)"
-            >
-              News
-            </TabsTrigger>
-            <TabsTrigger
-              value="portfolio"
-              style={activeTab === 'portfolio' ? tabStyles.active : tabStyles.default}
-              title="Portfolio (F4)"
-            >
-              Portfolio
-            </TabsTrigger>
-            <TabsTrigger
-              value="backtesting"
-              style={activeTab === 'backtesting' ? tabStyles.active : tabStyles.default}
-              title="Backtesting (F5)"
-            >
-              Backtesting
-            </TabsTrigger>
-            <TabsTrigger
-              value="watchlist"
-              style={activeTab === 'watchlist' ? tabStyles.active : tabStyles.default}
-              title="Watchlist (F6)"
-            >
-              Watchlist
-            </TabsTrigger>
-            <TabsTrigger
-              value="research"
-              style={activeTab === 'research' ? tabStyles.active : tabStyles.default}
-              title="Equity Research (F7)"
-            >
-              Research
-            </TabsTrigger>
-            <TabsTrigger
-              value="screener"
-              style={activeTab === 'screener' ? tabStyles.active : tabStyles.default}
-              title="Screener (F8)"
-            >
-              Screener
-            </TabsTrigger>
-            <TabsTrigger
-              value="trading"
-              style={activeTab === 'trading' ? tabStyles.active : tabStyles.default}
-              title="Trading (F9)"
-            >
-              Trading
-            </TabsTrigger>
-            <TabsTrigger
-              value="autotrade"
-              style={activeTab === 'autotrade' ? tabStyles.active : tabStyles.default}
-              title="Autotrade (F10)"
-            >
-              Autotrade
-            </TabsTrigger>
-            <TabsTrigger
-              value="chat"
-              style={activeTab === 'chat' ? tabStyles.active : tabStyles.default}
-              title="AI Chat (F11)"
-            >
-              AI Chat
-            </TabsTrigger>
-            <TabsTrigger
-              value="settings"
-              style={activeTab === 'settings' ? tabStyles.active : tabStyles.default}
-              title="Settings"
-            >
-              Settings
-            </TabsTrigger>
-            <TabsTrigger
-              value="profile"
-              style={activeTab === 'profile' ? tabStyles.active : tabStyles.default}
-              title="Profile (F12)"
-            >
-              Profile
-            </TabsTrigger>
-          </TabsList>
-        </Tabs>
->>>>>>> b6b79052 (Add Autotrade integration tab and components)
         </div>
       )}
 
@@ -1136,7 +976,6 @@ function FinxeptTerminalContent() {
             <TabsContent value="dashboard" className="h-full m-0 p-0">
               <DashboardTab onNavigateToTab={setActiveTab} />
             </TabsContent>
-<<<<<<< HEAD
             <TabsContent value="markets" className="h-full m-0 p-0">
               <MarketsTab />
             </TabsContent>
@@ -1345,99 +1184,6 @@ function FinxeptTerminalContent() {
               </React.Suspense>
             </TabsContent>
           </Tabs>
-=======
-          <TabsContent value="markets" className="h-full m-0 p-0">
-            <MarketsTab />
-          </TabsContent>
-          <TabsContent value="news" className="h-full m-0 p-0">
-            <NewsTab />
-          </TabsContent>
-          <TabsContent value="forum" className="h-full m-0 p-0">
-            <ForumTab />
-          </TabsContent>
-          <TabsContent value="watchlist" className="h-full m-0 p-0">
-            <WatchlistTab />
-          </TabsContent>
-          <TabsContent value="geopolitics" className="h-full m-0 p-0">
-            <GeopoliticsTab />
-          </TabsContent>
-          <TabsContent value="chat" className="h-full m-0 p-0">
-            <ChatTab
-              onNavigateToSettings={() => setActiveTab('settings')}
-              onNavigateToTab={(tabName) => setActiveTab(tabName)}
-            />
-          </TabsContent>
-          <TabsContent value="fyers" className="h-full m-0 p-0">
-            <FyersTab />
-          </TabsContent>
-          <TabsContent value="mcp" className="h-full m-0 p-0">
-            <MCPTab onNavigateToTab={(tabName) => setActiveTab(tabName)} />
-          </TabsContent>
-          <TabsContent value="profile" className="h-full m-0 p-0">
-            <ProfileTab />
-          </TabsContent>
-          <TabsContent value="marketplace" className="h-full m-0 p-0">
-            <MarketplaceTab />
-          </TabsContent>
-          <TabsContent value="portfolio" className="h-full m-0 p-0">
-            <PortfolioTab />
-          </TabsContent>
-          <TabsContent value="backtesting" className="h-full m-0 p-0">
-            <BacktestingTab />
-          </TabsContent>
-          <TabsContent value="research" className="h-full m-0 p-0">
-            <EquityResearchTab />
-          </TabsContent>
-          <TabsContent value="polygon" className="h-full m-0 p-0">
-            <PolygonEqTab />
-          </TabsContent>
-          <TabsContent value="screener" className="h-full m-0 p-0">
-            <ScreenerTab />
-          </TabsContent>
-          <TabsContent value="dbnomics" className="h-full m-0 p-0">
-            <DBnomicsTab />
-          </TabsContent>
-          <TabsContent value="economics" className="h-full m-0 p-0">
-            <EconomicsTab />
-          </TabsContent>
-          <TabsContent value="code" className="h-full m-0 p-0">
-            <CodeEditorTab />
-          </TabsContent>
-          <TabsContent value="docs" className="h-full m-0 p-0">
-            <DocsTab />
-          </TabsContent>
-          <TabsContent value="maritime" className="h-full m-0 p-0">
-            <MaritimeTab />
-          </TabsContent>
-          <TabsContent value="trading" className="h-full m-0 p-0">
-            <TradingTab />
-          </TabsContent>
-          <TabsContent value="autotrade" className="h-full m-0 p-0">
-            <AutotradeTab />
-          </TabsContent>
-          <TabsContent value="settings" className="h-full m-0 p-0">
-            <SettingsTab />
-          </TabsContent>
-          <TabsContent value="nodes" className="h-full m-0 p-0">
-            <NodeEditorTab />
-          </TabsContent>
-          <TabsContent value="datasources" className="h-full m-0 p-0">
-            <DataSourcesTab />
-          </TabsContent>
-          <TabsContent value="support" className="h-full m-0 p-0">
-            <SupportTicketTab />
-          </TabsContent>
-          <TabsContent value="datamapping" className="h-full m-0 p-0">
-            <DataMappingTab />
-          </TabsContent>
-          <TabsContent value="contexts" className="h-full m-0 p-0">
-            <RecordedContextsManager />
-          </TabsContent>
-          <TabsContent value="reportbuilder" className="h-full m-0 p-0">
-            <ReportBuilderTab />
-          </TabsContent>
-        </Tabs>
->>>>>>> b6b79052 (Add Autotrade integration tab and components)
         )}
       </div>
 
