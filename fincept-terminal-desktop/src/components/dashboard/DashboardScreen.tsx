@@ -908,6 +908,13 @@ function FinxeptTerminalContent() {
                   {t('navigation.backtesting')}
                 </TabsTrigger>
                 <TabsTrigger
+                  value="autotrade"
+                  style={activeTab === 'autotrade' ? tabStyles.active : tabStyles.default}
+                  title="Autotrade"
+                >
+                  Autotrade
+                </TabsTrigger>
+                <TabsTrigger
                   value="algo-trading"
                   style={activeTab === 'algo-trading' ? tabStyles.active : tabStyles.default}
                   title="Algo Trading"
@@ -1041,6 +1048,9 @@ function FinxeptTerminalContent() {
               <React.Suspense fallback={<TabLoadingFallback />}>
                 <BacktestingTab />
               </React.Suspense>
+            </TabsContent>
+            <TabsContent value="autotrade" className="h-full m-0 p-0">
+              <AutotradeTab />
             </TabsContent>
             <TabsContent value="research" className="h-full m-0 p-0">
               <React.Suspense fallback={<TabLoadingFallback />}>
