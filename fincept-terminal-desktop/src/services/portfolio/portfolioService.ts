@@ -5,6 +5,7 @@
 import { invoke } from '@tauri-apps/api/core';
 import { marketDataService, QuoteData } from '../markets/marketDataService';
 import { portfolioLogger } from '../core/loggerService';
+import { autotradePortfolioService } from './autotradeService';
 
 // ==================== TYPES ====================
 
@@ -170,6 +171,22 @@ class PortfolioService {
 
   async getPortfolio(portfolioId: string): Promise<Portfolio | null> {
     portfolioLogger.info(`Fetching portfolio: ${portfolioId}`);
+
+    // Check if this is an Autotrade portfolio
+    if (this.isAutotradePortfolio(portfolioId)) {
+      const accountId = portfolioId.replace('autotrade-', '');
+      const autotradeSummary = await autotradePortfolioService.getPortfolioSummary(accountId);
+      return {
+        id: portfolioId,
+        name: autotradePortfolioService.getPortfolioName(),
+        owner: accountId,
+        currency: 'USD',
+        description: 'Autotrade automated trading portfolio',
+        created_at: autotradeSummary.last_updated,
+        updated_at: autotradeSummary.last_updated,
+      };
+    }
+
     const portfolio = await invoke<Portfolio | null>('portfolio_get_by_id', { portfolioId });
     return portfolio;
   }
@@ -241,6 +258,23 @@ class PortfolioService {
 
   async getPortfolioAssets(portfolioId: string): Promise<PortfolioAsset[]> {
     portfolioLogger.info(`Fetching assets for portfolio: ${portfolioId}`);
+
+    // Check if this is an Autotrade portfolio
+    if (this.isAutotradePortfolio(portfolioId)) {
+      portfolioLogger.info(`Autotrade portfolio detected: ${portfolioId}`);
+      const accountId = portfolioId.replace('autotrade-', '');
+      const positions = await autotradePortfolioService.getHoldings(accountId);
+      return positions.map(h => ({
+        id: h.id,
+        portfolio_id: portfolioId,
+        symbol: h.symbol,
+        quantity: h.quantity,
+        avg_buy_price: h.avg_buy_price,
+        first_purchase_date: h.first_purchase_date || new Date().toISOString(),
+        last_updated: h.last_updated || new Date().toISOString(),
+      }));
+    }
+
     const assets = await invoke<PortfolioAsset[]>('portfolio_get_assets', { portfolioId });
     return assets;
   }
@@ -292,10 +326,35 @@ class PortfolioService {
     return transaction;
   }
 
+  // ============================================================================
+  // AUTOTRADE PORTFOLIO SUPPORT
+  // ============================================================================
+
+  /**
+   * Check if portfolio is an Autotrade portfolio (prefix: 'autotrade-')
+   */
+  private isAutotradePortfolio(portfolioId: string): boolean {
+    return portfolioId.startsWith('autotrade-');
+  }
+
+  /**
+   * Get Autotrade portfolio summary (delegates to AutotradePortfolioService)
+   */
+  private async getAutotradePortfolioSummary(portfolioId: string): Promise<PortfolioSummary> {
+    const accountId = portfolioId.replace('autotrade-', '');
+    return await autotradePortfolioService.getPortfolioSummary(accountId);
+  }
+
   async getPortfolioSummary(portfolioId: string): Promise<PortfolioSummary> {
     portfolioLogger.info(`Calculating portfolio summary: ${portfolioId}`);
 
-    // Get portfolio and assets
+    // Check if this is an Autotrade portfolio
+    if (this.isAutotradePortfolio(portfolioId)) {
+      portfolioLogger.info(`Autotrade portfolio detected: ${portfolioId}`);
+      return await this.getAutotradePortfolioSummary(portfolioId);
+    }
+
+    // Get portfolio and assets from SQLite
     const portfolio = await this.getPortfolio(portfolioId);
     if (!portfolio) {
       throw new Error('Portfolio not found');

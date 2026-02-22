@@ -2464,6 +2464,11 @@ pub fn run() {
             commands::brokers::tradier_ws_subscribe,
             commands::brokers::tradier_ws_unsubscribe,
             commands::brokers::tradier_ws_disconnect,
+            // Autotrade Broker Commands
+            commands::brokers::autotrade_get_positions,
+            commands::brokers::autotrade_get_account_summary,
+            commands::brokers::autotrade_get_performance,
+            commands::brokers::autotrade_get_orders,
             // Generic Storage Commands (SQLite key-value storage)
             commands::storage::storage_set,
             commands::storage::storage_get,

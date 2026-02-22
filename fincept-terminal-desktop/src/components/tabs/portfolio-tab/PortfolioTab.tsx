@@ -36,8 +36,10 @@ import { usePortfolioOperations } from './hooks/usePortfolioOperations';
 import { formatCurrency, formatPercent } from './portfolio/utils';
 import { TabFooter } from '@/components/common/TabFooter';
 import { showError } from '@/utils/notifications';
+import AutoPositionsView from './portfolio/AutoPositionsView';
+import { AutotradeAdapter } from '@/brokers/autotrade';
 
-type SubTab = 'positions' | 'history' | 'analytics' | 'sectors' | 'performance' | 'risk' | 'reports' | 'alerts' | 'active-mgmt' | 'optimization' | 'indices' | 'quantstats' | 'pme' | 'skfolio';
+type SubTab = 'positions' | 'history' | 'analytics' | 'sectors' | 'performance' | 'risk' | 'reports' | 'alerts' | 'active-mgmt' | 'optimization' | 'indices' | 'quantstats' | 'pme' | 'skfolio' | 'auto';
 
 const PortfolioTab: React.FC = () => {
   const { t } = useTranslation('portfolio');
@@ -66,6 +68,12 @@ const PortfolioTab: React.FC = () => {
   const [sellAssetSymbol, setSellAssetSymbol] = useState('');
   const [sellAssetQuantity, setSellAssetQuantity] = useState('');
   const [sellAssetPrice, setSellAssetPrice] = useState('');
+
+  // Autotrade state
+  const [autotradeAdapter] = useState<AutotradeAdapter | null>(new AutotradeAdapter());
+  const [autotradePositions, setAutotradePositions] = useState<any[]>([]);
+  const [autotradePortfolioSummary, setAutotradePortfolioSummary] = useState<any>(null);
+  const [autotradeLoading, setAutotradeLoading] = useState(false);
 
   // Use custom hook for portfolio operations
   const {
@@ -104,6 +112,42 @@ const PortfolioTab: React.FC = () => {
     }, 1000);
     return () => clearInterval(timer);
   }, []);
+
+  // Load Autotrade positions and portfolio summary function (can be called by useEffect or button)
+  const loadAutotradeData = useCallback(async () => {
+    if (!autotradeAdapter) return;
+    try {
+      setAutotradeLoading(true);
+      // Authenticate with credentials (api key and account ID)
+      await autotradeAdapter.authenticate({
+        userId: 'DU8489265',
+        apiKey: 'autotrade-api-key', // Placeholder - integration service handles auth
+      });
+      // Fetch positions
+      const positions = await autotradeAdapter.getPositions();
+      setAutotradePositions(positions);
+
+      // Fetch portfolio summary (account info, total value, P&L, etc.)
+      try {
+        const summary = await autotradeAdapter.getFunds();
+        setAutotradePortfolioSummary(summary);
+      } catch (summaryError) {
+        console.error('[PortfolioTab] Error loading Autotrade portfolio summary:', summaryError);
+        // Continue even if summary fails
+      }
+    } catch (error) {
+      console.error('[PortfolioTab] Error loading Autotrade data:', error);
+    } finally {
+      setAutotradeLoading(false);
+    }
+  }, [autotradeAdapter]);
+
+  // Load Autotrade positions and portfolio summary when AUTO tab is selected
+  useEffect(() => {
+    if (activeSubTab === 'auto') {
+      loadAutotradeData();
+    }
+  }, [activeSubTab, loadAutotradeData]);
 
   // Handle create portfolio
   const handleCreatePortfolio = async () => {
@@ -190,6 +234,7 @@ const PortfolioTab: React.FC = () => {
     { id: 'quantstats' as SubTab, label: t('views.quantstats', 'QUANTSTATS'), icon: Activity },
     { id: 'pme' as SubTab, label: 'PME', icon: TrendingUp },
     { id: 'skfolio' as SubTab, label: 'SKFOLIO', icon: Layers },
+    { id: 'auto' as SubTab, label: 'AUTO', icon: Layers },
     { id: 'reports' as SubTab, label: t('views.reports'), icon: BarChart3 },
     { id: 'alerts' as SubTab, label: t('views.alerts'), icon: AlertCircle }
   ];
@@ -239,11 +284,14 @@ const PortfolioTab: React.FC = () => {
           {subTabs.map(tab => {
             const Icon = tab.icon;
             const isActive = activeSubTab === tab.id;
+            // Autotrade (AUTO) tab works without a portfolio
+            const isAutotradeTab = tab.id === 'auto';
+            const isDisabled = !selectedPortfolio && !isAutotradeTab;
             return (
               <button
                 key={tab.id}
                 onClick={() => setActiveSubTab(tab.id)}
-                disabled={!selectedPortfolio}
+                disabled={!selectedPortfolio && !isAutotradeTab}
                 style={{
                   padding: '6px 12px',
                   backgroundColor: isActive ? colors.primary : 'transparent',
@@ -253,19 +301,19 @@ const PortfolioTab: React.FC = () => {
                   fontSize: fontSize.tiny,
                   fontWeight: 700,
                   letterSpacing: '0.5px',
-                  cursor: selectedPortfolio ? 'pointer' : 'not-allowed',
+                  cursor: (selectedPortfolio || isAutotradeTab) ? 'pointer' : 'not-allowed',
                   transition: 'all 0.15s ease',
                   textTransform: 'uppercase' as const,
                   display: 'flex',
                   alignItems: 'center',
                   gap: '3px',
                   fontFamily,
-                  opacity: selectedPortfolio ? 1 : 0.5,
+                  opacity: (selectedPortfolio || isAutotradeTab) ? 1 : 0.5,
                   whiteSpace: 'nowrap',
                   flexShrink: 0,
                 }}
                 onMouseEnter={(e) => {
-                  if (!isActive && selectedPortfolio) {
+                  if (!isActive && (selectedPortfolio || isAutotradeTab)) {
                     e.currentTarget.style.backgroundColor = 'var(--ft-color-hover, #1F1F1F)';
                     e.currentTarget.style.color = colors.text;
                   }
@@ -273,7 +321,7 @@ const PortfolioTab: React.FC = () => {
                 onMouseLeave={(e) => {
                   if (!isActive) {
                     e.currentTarget.style.backgroundColor = 'transparent';
-                    e.currentTarget.style.color = selectedPortfolio ? colors.textMuted : '#4A4A4A';
+                    e.currentTarget.style.color = (selectedPortfolio || isAutotradeTab) ? colors.textMuted : '#4A4A4A';
                   }
                 }}
               >
@@ -630,6 +678,18 @@ const PortfolioTab: React.FC = () => {
                     key={indexRefreshKey}
                     portfolioId={selectedPortfolio?.id}
                     onCreateIndex={() => setShowCreateIndex(true)}
+                  />
+                </div>
+              )}
+              {activeSubTab === 'auto' && (
+                <div id="auto-view" style={{ height: '100%' }}>
+                  <AutoPositionsView
+                    portfolioSummary={portfolioSummary || {}}
+                    autotradePositions={autotradePositions}
+                    autotradePortfolioSummary={autotradePortfolioSummary}
+                    currency="USD"
+                    onRefresh={loadAutotradeData}
+                    loading={autotradeLoading}
                   />
                 </div>
               )}

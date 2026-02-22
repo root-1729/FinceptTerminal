@@ -960,6 +960,68 @@ export const STOCK_BROKER_REGISTRY: Record<string, StockBrokerMetadata> = {
   },
 
   // ============================================================================
+  // AUTOTRADE (US Automated Trading)
+  // ============================================================================
+
+  autotrade: {
+    id: 'autotrade',
+    name: 'autotrade',
+    displayName: 'Autotrade',
+    logo: 'https://fincept.in/brokers/autotrade.png',
+    website: 'https://fincept.org/autotrade',
+
+    region: 'us',
+    country: 'US',
+    currency: 'USD',
+    exchanges: ['NASDAQ', 'NYSE', 'AMEX', 'ARCA', 'BATS'],
+    marketHours: {
+      open: '09:30',
+      close: '16:00',
+      timezone: 'America/New_York',
+      preMarketOpen: '04:00',
+      preMarketClose: '09:30',
+      postMarketOpen: '16:00',
+      postMarketClose: '20:00',
+    },
+
+    features: {
+      webSocket: true,
+      amo: false, // US doesn't use AMO concept
+      gtt: false, // GTT not supported - orders placed via strategies
+      bracketOrder: false, // Bracket orders handled by strategy
+      coverOrder: false,
+      marginCalculator: true,
+      optionsChain: false, // Options chain not supported
+      paperTrading: true, // Autotrade supports paper trading
+    },
+
+    tradingFeatures: {
+      marketOrders: true,
+      limitOrders: true,
+      stopOrders: false, // Stop orders via strategy
+      stopLimitOrders: false, // Via strategy
+      trailingStopOrders: false, // Via strategy
+    },
+
+    productTypes: ['CASH', 'MARGIN'],
+
+    authType: 'api_key', // Integration service handles auth
+
+    rateLimit: {
+      ordersPerSecond: 10,
+      quotesPerSecond: 60,
+    },
+
+    fees: {
+      equity: { brokerage: 0, stt: 0 }, // No brokerage - automated trading
+      intraday: { brokerage: 0 },
+      fno: { brokerage: 0 },
+    },
+
+    defaultSymbols: ['TQQQ', 'SQQQ', 'QQQ', 'SPY', 'DJI'],
+  },
+
+  // ============================================================================
   // EUROPE BROKERS (Placeholder)
   // ============================================================================
 

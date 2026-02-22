@@ -36,5 +36,11 @@ export { initializeStockBrokers } from './init';
 // Indian Brokers
 export * from './india';
 
+// US Brokers
+export * from './us';
+
+// Autotrade (External Service)
+export * from '../autotrade';
+
 // YFinance Paper Trading
 export * from './yfinance';

@@ -24,6 +24,7 @@ import { ShoonyaAdapter } from './india/shoonya/ShoonyaAdapter';
 import { AlpacaAdapter } from './us/alpaca/AlpacaAdapter';
 import { IBKRAdapter } from './us/ibkr/IBKRAdapter';
 import { TradierAdapter } from './us/tradier/TradierAdapter';
+import { AutotradeAdapter } from '../autotrade';
 
 // European Brokers
 // Paper Trading
@@ -53,6 +54,7 @@ export function initializeStockBrokers(): void {
   registerBrokerAdapter('alpaca', AlpacaAdapter);
   registerBrokerAdapter('ibkr', IBKRAdapter);
   registerBrokerAdapter('tradier', TradierAdapter);
+  registerBrokerAdapter('autotrade', AutotradeAdapter);
 
   // Register European brokers
   registerBrokerAdapter('saxobank', SaxoBankAdapter);

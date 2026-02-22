@@ -21,6 +21,7 @@
 //! - **Alpaca**: Commission-free trading with paper/live modes, WebSocket streaming
 //! - **IBKR**: Interactive Brokers Client Portal API with paper/live modes
 //! - **Tradier**: US broker with OAuth, paper/live modes, options support, WebSocket streaming
+//! - **Autotrade**: Automated trading system with real-time portfolio tracking
 //!
 //! ## Available European Brokers:
 //! - **Saxo Bank**: Pan-European broker with OAuth 2.0, 30+ exchanges, WebSocket streaming
@@ -43,6 +44,7 @@
 //! ├── alpaca.rs      - Alpaca US broker (43 commands)
 //! ├── ibkr.rs        - Interactive Brokers US broker (35+ commands)
 //! ├── tradier.rs     - Tradier US broker (20+ commands)
+//! ├── autotrade.rs   - Autotrade broker (4 commands)
 //! └── mod.rs         - This file (re-exports)
 //! ```
 
@@ -67,6 +69,9 @@ pub mod shoonya;
 pub mod alpaca;
 pub mod ibkr;
 pub mod tradier;
+
+// Custom Brokers
+pub mod autotrade;
 
 // European Brokers
 pub mod saxobank;
@@ -118,6 +123,9 @@ pub use ibkr::*;
 
 // Re-export everything from tradier (includes tauri command wrappers)
 pub use tradier::*;
+
+// Re-export everything from autotrade (includes tauri command wrappers)
+pub use autotrade::*;
 
 // Re-export everything from saxobank (includes tauri command wrappers)
 pub use saxobank::*;
