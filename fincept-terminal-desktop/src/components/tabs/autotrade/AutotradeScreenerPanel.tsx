@@ -46,6 +46,9 @@ export default function AutotradeScreenerPanel() {
   const [results, setResults] = useState<ScreenerResult[]>([]);
   const [session, setSession] = useState<ScreenerSession | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  // True for the whole scan (trigger + polling); isLoading flips on every poll
+  const [isScanning, setIsScanning] = useState(false);
+  const busy = isLoading || isScanning;
   const [isLoadingConfigs, setIsLoadingConfigs] = useState(true);
 
   // Load available screener configs on mount
@@ -91,8 +94,8 @@ export default function AutotradeScreenerPanel() {
     }
   };
 
-  const loadLatestResults = async () => {
-    if (!selectedConfig) return;
+  const loadLatestResults = async (): Promise<ScreenerSession | null> => {
+    if (!selectedConfig) return null;
     
     setIsLoading(true);
     try {
@@ -107,10 +110,12 @@ export default function AutotradeScreenerPanel() {
       const data = await response.json();
       setSession(data.session);
       setResults(data.results || []);
+      return data.session ?? null;
     } catch (error) {
       console.error('Failed to load screener results:', error);
       setResults([]);
       setSession(null);
+      return null;
     } finally {
       setIsLoading(false);
     }
@@ -119,7 +124,7 @@ export default function AutotradeScreenerPanel() {
   const triggerNewScreening = async () => {
     if (!selectedConfig) return;
     
-    setIsLoading(true);
+    setIsScanning(true);
     try {
       // Find the config filename
       const config = configs.find(c => c.name === selectedConfig);
@@ -140,15 +145,18 @@ export default function AutotradeScreenerPanel() {
         throw new Error(`Failed to trigger screening: ${response.status}`);
       }
 
-      // Wait a bit for screening to complete, then reload
-      setTimeout(() => {
-        loadLatestResults();
-      }, 5000);
+      // Screening runs in the background (quotes can take ~20s); poll until a new session appears
+      const previousId = session?.session_id;
+      for (let i = 0; i < 20; i++) {
+        await new Promise(resolve => setTimeout(resolve, 3000));
+        const latest = await loadLatestResults();
+        if (latest && latest.session_id !== 'none' && latest.session_id !== previousId) break;
+      }
     } catch (error) {
       console.error('Failed to trigger screening:', error);
       alert(`Failed to trigger screening: ${error instanceof Error ? error.message : String(error)}`);
     } finally {
-      setIsLoading(false);
+      setIsScanning(false);
     }
   };
 
@@ -224,7 +232,7 @@ export default function AutotradeScreenerPanel() {
             <Button 
               onClick={loadLatestResults} 
               variant="outline" 
-              disabled={isLoading || !selectedConfig}
+              disabled={busy || !selectedConfig}
               style={{
                 backgroundColor: '#1A1A1A',
                 border: '1px solid #2A2A2A',
@@ -233,12 +241,12 @@ export default function AutotradeScreenerPanel() {
                 padding: '0 16px'
               }}
             >
-              <RefreshCw className={`h-4 w-4 mr-2 ${isLoading ? 'animate-spin' : ''}`} />
+              <RefreshCw className={`h-4 w-4 mr-2 ${busy ? 'animate-spin' : ''}`} />
               Refresh
             </Button>
             <Button 
               onClick={triggerNewScreening} 
-              disabled={isLoading || !selectedConfig}
+              disabled={busy || !selectedConfig}
               style={{
                 backgroundColor: '#FF8800',
                 border: 'none',
@@ -286,7 +294,7 @@ export default function AutotradeScreenerPanel() {
       </div>
 
       {/* Loading State */}
-      {isLoading && (
+      {busy && results.length === 0 && (
         <div style={{
           backgroundColor: '#0F0F0F',
           border: '1px solid #2A2A2A',
@@ -303,7 +311,7 @@ export default function AutotradeScreenerPanel() {
       )}
       
       {/* Empty State */}
-      {!isLoading && !selectedConfig && (
+      {!busy && !selectedConfig && (
         <div style={{
           backgroundColor: '#0F0F0F',
           border: '1px solid #2A2A2A',
@@ -320,7 +328,7 @@ export default function AutotradeScreenerPanel() {
       )}
 
       {/* No Results State */}
-      {!isLoading && selectedConfig && results.length === 0 && (
+      {!busy && selectedConfig && results.length === 0 && (
         <div style={{
           backgroundColor: '#0F0F0F',
           border: '1px solid #2A2A2A',
@@ -335,7 +343,7 @@ export default function AutotradeScreenerPanel() {
       )}
       
       {/* Results Table */}
-      {!isLoading && results.length > 0 && (
+      {results.length > 0 && (
         <div style={{
           backgroundColor: '#0F0F0F',
           border: '1px solid #2A2A2A',

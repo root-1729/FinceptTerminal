@@ -119,10 +119,24 @@ export default function AutotradeTab() {
       if (positionsRes.ok) {
         const data = await positionsRes.json();
         // Ensure positions is always an array
-        const positionsData = Array.isArray(data.positions) 
-          ? data.positions 
+        const positionsData = Array.isArray(data.positions)
+          ? data.positions
           : (Array.isArray(data) ? data : []);
-        setPositions(positionsData);
+        // api-gateway sends avg_price / market_value / unrealized_pnl; map them to Position
+        setPositions(positionsData.map((p: any) => {
+          const entry = Number(p.entry_price ?? p.avg_price ?? 0);
+          const qty = Number(p.quantity ?? 0);
+          const pnl = Number(p.pnl ?? p.unrealized_pnl ?? 0);
+          const cost = Math.abs(entry * qty);
+          return {
+            symbol: p.symbol,
+            quantity: qty,
+            entry_price: entry,
+            current_price: Number(p.current_price ?? (qty ? Number(p.market_value ?? 0) / qty : 0)),
+            pnl,
+            pnl_percent: Number(p.pnl_percent ?? (cost ? (pnl / cost) * 100 : 0)),
+          };
+        }));
       }
 
     } catch (err) {
