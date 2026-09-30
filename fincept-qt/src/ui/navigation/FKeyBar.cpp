@@ -26,6 +26,7 @@ TabBar::TabBar(QWidget* parent) : QWidget(parent) {
         {"node_editor", "NODES"},     {"code_editor", "CODE"},     {"ai_quant_lab", "QUANT LAB"},
         {"quantlib", "QUANTLIB"},     {"settings", "SETTINGS"},    {"profile", "PROFILE"},
     };
+    tab_defs_.insert(tab_defs_.begin() + 9, {"autotrade", "AUTOTRADE"}); // autotrade: after ALGO
     for (const auto& def : tab_defs_)
         add_tab(def);
     scroll_area->setWidget(container);
