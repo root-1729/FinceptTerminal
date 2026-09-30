@@ -2891,6 +2891,9 @@ target_include_directories(FinceptTerminal PRIVATE
     src
 )
 
+# autotrade: fork-only integration, all sources under src/autotrade/
+include(${CMAKE_CURRENT_SOURCE_DIR}/src/autotrade/autotrade.cmake)
+
 
 
 # ── Translations (.ts → .qm → resources) ──────────────────────────────────────

@@ -417,6 +417,7 @@ QMenu* ToolBar::build_navigate_menu() {
     nav(trd, tr("Derivatives"), "derivatives");
     nav(trd, tr("F&&O"), "fno");
     nav(trd, tr("Watchlist"), "watchlist");
+    nav(trd, tr("Autotrade"), "autotrade"); // autotrade:
 
     auto* crypto = add_sub(tr("Crypto"));
     nav(crypto, tr("Crypto Center"), "crypto_center");

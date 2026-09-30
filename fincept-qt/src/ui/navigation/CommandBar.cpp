@@ -126,6 +126,13 @@ void CommandBar::build_commands() {
          {"watch", "watchlist", "wl"},
          "F6",
          {"watchlist", "favorites", "track"}},
+        // autotrade: fork-only screen (src/autotrade/)
+        {"autotrade",
+         tr("Autotrade"),
+         "Autotrade IBKR stack: account, positions, screener",
+         {"autotrade", "at", "ibkr"},
+         "",
+         {"autotrade", "ibkr", "screener", "positions"}},
         {"crypto_trading",
          tr("Crypto Trading"),
          "Cryptocurrency trading",

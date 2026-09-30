@@ -77,6 +77,7 @@
 #include "screens/surface_analytics/SurfaceAnalyticsScreen.h"
 #include "screens/trade_viz/TradeVizScreen.h"
 #include "screens/watchlist/WatchlistScreen.h"
+#include "autotrade/AutotradeScreen.h" // autotrade:
 #include "ui/navigation/DockStatusBar.h"
 #include "ui/navigation/DockToolBar.h"
 #include "ui/navigation/FKeyBar.h"
@@ -234,6 +235,7 @@ void WindowFrame::setup_dock_screens() {
     dock_router_->register_factory("news", []() { return new screens::NewsScreen; });
     dock_router_->register_factory("forum", []() { return new screens::ForumScreen; });
     dock_router_->register_factory("watchlist", []() { return new screens::WatchlistScreen; });
+    dock_router_->register_factory("autotrade", []() { return new autotrade::AutotradeScreen; }); // autotrade:
 
     // Lazily constructed on first navigation — deferred to avoid startup cost.
     dock_router_->register_factory("report_builder", []() { return new screens::ReportBuilderScreen; });
