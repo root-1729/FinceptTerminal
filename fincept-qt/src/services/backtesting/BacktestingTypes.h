@@ -64,6 +64,7 @@ inline QVector<Provider> all_providers() {
          // backtest-shaped commands are exposed.
          {"backtest", "optimize", "walk_forward"}},
         {"fincept", "Fincept", QColor("#d97706"), {"backtest", "optimize", "walk_forward"}},
+        {"autotrade", "Autotrade", QColor("#22C55E"), {"backtest", "optimize", "walk_forward"}}, // autotrade:
     };
 }
 

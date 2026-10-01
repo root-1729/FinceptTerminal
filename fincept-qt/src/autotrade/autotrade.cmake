@@ -8,6 +8,8 @@
 #   src/ui/navigation/ToolBar.cpp   menu entry under Trading & Portfolio
 #   src/ui/navigation/CommandBar.cpp command palette entry
 #   src/ui/navigation/FKeyBar.cpp   AUTOTRADE tab in the top tab row
+#   src/services/backtesting/BacktestingTypes.h  "Autotrade" Backtesting provider
+#     (script: scripts/Analytics/backtesting/autotrade/autotrade_provider.py)
 #
 # The api-gateway URL is set with FINCEPT_AUTOTRADE_URL (default http://localhost:8000).
 

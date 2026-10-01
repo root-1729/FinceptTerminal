@@ -6,6 +6,9 @@ Adds an **AUTOTRADE** screen to the Qt Fincept Terminal for the autotrade stack
 - **OVERVIEW:** service health, IB account summary, positions, open orders, stock screener.
 - **STRATEGIES:** every TQQQ/SQQQ rotation model with live paper returns and backtest stats;
   select one to see its daily history and the trades it implies on $100k.
+- **Backtesting tab provider "Autotrade":** backtest, optimise and walk-forward any rotation
+  model (or custom parameters) on the cluster's research service (`/research`), with the
+  tab's own charts and tables. Script: `scripts/Analytics/backtesting/autotrade/`.
 
 The screen only reads from the api-gateway (plus running screener scans). It never places
 orders: the autotrade execution engine is the only thing that trades.
@@ -22,7 +25,7 @@ orders: the autotrade execution engine is the only thing that trades.
 All code is in this folder. Upstream files carry only small additions, each marked
 `autotrade:` (listed in `autotrade.cmake`): `CMakeLists.txt`, `app/WindowFrame_Setup.cpp`,
 `app/DockScreenRouter.cpp`, `ui/navigation/ToolBar.cpp`, `ui/navigation/CommandBar.cpp`,
-`ui/navigation/FKeyBar.cpp`.
+`ui/navigation/FKeyBar.cpp`, `services/backtesting/BacktestingTypes.h`.
 
 ## API address
 
