@@ -17,6 +17,7 @@
 #include <QPushButton>
 #include <QSignalBlocker>
 #include <QSplitter>
+#include <QTabBar>
 #include <QTabWidget>
 #include <QTableWidget>
 #include <QTableWidgetItem>
@@ -162,6 +163,9 @@ void AutotradeScreen::build_ui() {
     // ── Tabs: overview (positions + orders | screener) and strategies ───────
     tabs_ = new QTabWidget(this);
     tabs_->setDocumentMode(true);
+    // The app's global style squeezes tab labels to "OVERV…"; never elide them
+    tabs_->tabBar()->setElideMode(Qt::ElideNone);
+    tabs_->tabBar()->setExpanding(false);
     auto* splitter = new QSplitter(Qt::Horizontal, tabs_);
     splitter->setChildrenCollapsible(false);
 
@@ -263,7 +267,7 @@ void AutotradeScreen::apply_styles() {
     if (tabs_)
         tabs_->setStyleSheet(
             QString("QTabWidget::pane { border: none; }"
-                    "QTabBar::tab { background: %1; color: %2; padding: 6px 16px; border: none; "
+                    "QTabBar::tab { background: %1; color: %2; padding: 8px 20px; min-width: 120px; border: none; "
                     "border-bottom: 2px solid transparent; font-size: 11px; font-weight: 700; }"
                     "QTabBar::tab:selected { color: %3; border-bottom-color: %4; }"
                     "QTabBar::tab:hover { color: %3; }")
