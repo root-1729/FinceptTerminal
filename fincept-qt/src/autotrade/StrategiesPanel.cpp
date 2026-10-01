@@ -11,7 +11,11 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QLabel>
+#include <QLocale>
+#include <QSignalBlocker>
 #include <QPushButton>
+#include <QSplitter>
+#include <QUrl>
 #include <QTableWidget>
 #include <QTableWidgetItem>
 #include <QTimer>
@@ -23,10 +27,14 @@ namespace {
 
 constexpr int kStrategiesRefreshMs = 60000;
 
+constexpr double kHistoryCapital = 100000.0;
+
 enum Col {
     Model, Decision, Tqqq, Sqqq, LiveRet, DayRet, LiveDd, Days,
     BtCagr, BtDd, BtSharpe, Bt12m, ColCount
 };
+
+enum HistCol { HDate, HDecision, HTqqq, HSqqq, HTrade, HHolding, HValue, HDay, HTotal, HColCount };
 
 /// Item that sorts by a numeric value but shows formatted text.
 class NumItem : public QTableWidgetItem {
@@ -92,7 +100,40 @@ StrategiesPanel::StrategiesPanel(QWidget* parent) : QWidget(parent) {
     table_->horizontalHeader()->setHighlightSections(false);
     table_->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
     table_->horizontalHeader()->setSectionResizeMode(Decision, QHeaderView::Stretch);
-    root->addWidget(table_, 1);
+    connect(table_, &QTableWidget::itemSelectionChanged, this, [this]() {
+        const QString m = selected_model();
+        if (!m.isEmpty() && m != history_model_) {
+            history_model_ = m;
+            load_history();
+        }
+    });
+
+    // Strategies on top, the selected strategy's daily history below
+    auto* split = new QSplitter(Qt::Vertical, this);
+    split->setChildrenCollapsible(false);
+    split->addWidget(table_);
+    auto* hist_box = new QWidget(split);
+    auto* hv = new QVBoxLayout(hist_box);
+    hv->setContentsMargins(0, 0, 0, 0);
+    hv->setSpacing(0);
+    history_title_ = new QLabel(hist_box);
+    history_title_->setObjectName("strategiesHistoryTitle");
+    hv->addWidget(history_title_);
+    history_ = new QTableWidget(hist_box);
+    history_->setColumnCount(HColCount);
+    history_->setSelectionBehavior(QAbstractItemView::SelectRows);
+    history_->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    history_->setShowGrid(false);
+    history_->setAlternatingRowColors(true);
+    history_->verticalHeader()->setVisible(false);
+    history_->horizontalHeader()->setHighlightSections(false);
+    history_->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    history_->horizontalHeader()->setSectionResizeMode(HTrade, QHeaderView::Stretch);
+    hv->addWidget(history_, 1);
+    split->addWidget(hist_box);
+    split->setStretchFactor(0, 3);
+    split->setStretchFactor(1, 2);
+    root->addWidget(split, 1);
 
     note_lbl_ = new QLabel;
     note_lbl_->setObjectName("strategiesNote");
@@ -115,8 +156,14 @@ void StrategiesPanel::apply_styles() {
         note_lbl_->setStyleSheet(QString("color: %1; font-size: 10px;").arg(ui::colors::TEXT_TERTIARY()));
     if (summary_lbl_)
         summary_lbl_->setStyleSheet(QString("color: %1; font-size: 11px;").arg(ui::colors::TEXT_SECONDARY()));
-    if (table_)
-        table_->setStyleSheet(
+    if (history_title_)
+        history_title_->setStyleSheet(QString("color: %1; font-size: 10px; font-weight: 700; padding: 8px 12px; "
+                                              "background: %2; border-top: 1px solid %3; border-bottom: 1px solid %3;")
+                                          .arg(ui::colors::TEXT_TERTIARY(), ui::colors::BG_SURFACE(),
+                                               ui::colors::BORDER_DIM()));
+    for (QTableWidget* t : {table_, history_})
+        if (t)
+            t->setStyleSheet(
             QString("QTableWidget { background: %1; color: %2; border: none; gridline-color: %3; }")
                 .arg(ui::colors::BG_BASE(), ui::colors::TEXT_PRIMARY(), ui::colors::BORDER_DIM()) +
             QString("QTableWidget::item { padding: 6px 8px; }") +
@@ -127,6 +174,10 @@ void StrategiesPanel::apply_styles() {
 }
 
 void StrategiesPanel::retranslate() {
+    history_->setHorizontalHeaderLabels({tr("DATE"), tr("DECISION"), tr("TQQQ"), tr("SQQQ"), tr("TRADE"),
+                                         tr("HOLDING"), tr("VALUE"), tr("DAY"), tr("SINCE START")});
+    if (history_model_.isEmpty())
+        history_title_->setText(tr("DAILY HISTORY · select a strategy above"));
     refresh_btn_->setText(tr("REFRESH"));
     refresh_btn_->setAccessibleName(tr("Refresh strategy returns now"));
     table_->setHorizontalHeaderLabels({tr("STRATEGY"), tr("DECISION"), tr("TQQQ"), tr("SQQQ"), tr("LIVE RETURN"),
@@ -150,6 +201,76 @@ void StrategiesPanel::showEvent(QShowEvent* e) {
 void StrategiesPanel::hideEvent(QHideEvent* e) {
     QWidget::hideEvent(e);
     timer_->stop();
+}
+
+QString StrategiesPanel::selected_model() const {
+    const auto rows = table_->selectionModel() ? table_->selectionModel()->selectedRows() : QModelIndexList{};
+    if (rows.isEmpty())
+        return {};
+    const QTableWidgetItem* item = table_->item(rows.first().row(), Model);
+    return item ? item->data(Qt::UserRole).toString() : QString();
+}
+
+void StrategiesPanel::load_history() {
+    if (history_model_.isEmpty())
+        return;
+    const QString model = history_model_;
+    const QString url = api_url("/rotation/history?capital=%1&model=")
+                            .arg(static_cast<qint64>(kHistoryCapital)) +
+                        QUrl::toPercentEncoding(model);
+    HttpClient::instance().get(
+        url,
+        [this, model](Result<QJsonDocument> r) {
+            if (model != history_model_)  // user moved on to another strategy
+                return;
+            if (r.is_err()) {
+                history_title_->setText(tr("DAILY HISTORY · %1 · unavailable: %2")
+                                            .arg(model, HttpClient::message_from_error(r.error())));
+                return;
+            }
+            render_history(r.value().object());
+        },
+        this);
+}
+
+void StrategiesPanel::render_history(const QJsonObject& data) {
+    const QJsonArray rows = data.value("rows").toArray();
+    int trades = 0;
+    for (const QJsonValue& v : rows)
+        if (!v.toObject().value("trade").toString().isEmpty())
+            ++trades;
+    history_title_->setText(tr("DAILY HISTORY · %1 · %2 days · %3 trades · on $%4, shares as the engine would size them")
+                                .arg(history_model_)
+                                .arg(rows.size())
+                                .arg(trades)
+                                .arg(QLocale().toString(kHistoryCapital, 'f', 0)));
+    history_->setRowCount(rows.size());
+    for (int i = 0; i < rows.size(); ++i) {
+        const QJsonObject h = rows.at(i).toObject();
+        const QString trade = h.value("trade").toString();
+        auto* trade_item = new QTableWidgetItem(trade.isEmpty() ? QStringLiteral("—") : trade);
+        if (trade.isEmpty())
+            trade_item->setForeground(QColor(ui::colors::TEXT_DIM()));
+        else
+            trade_item->setForeground(QColor(trade.startsWith("SELL") ? ui::colors::NEGATIVE()
+                                                                      : ui::colors::POSITIVE()));
+        QStringList holding;
+        if (h.value("tqqq_shares").toInt() > 0)
+            holding << QString("%1 TQQQ").arg(QLocale().toString(h.value("tqqq_shares").toInt()));
+        if (h.value("sqqq_shares").toInt() > 0)
+            holding << QString("%1 SQQQ").arg(QLocale().toString(h.value("sqqq_shares").toInt()));
+
+        history_->setItem(i, HDate, new QTableWidgetItem(h.value("as_of").toString()));
+        history_->setItem(i, HDecision, new QTableWidgetItem(h.value("decision").toString()));
+        history_->setItem(i, HTqqq, pct(h.value("long_alloc"), false, 0));
+        history_->setItem(i, HSqqq, pct(h.value("inverse_alloc"), false, 0));
+        history_->setItem(i, HTrade, trade_item);
+        history_->setItem(i, HHolding, new QTableWidgetItem(holding.isEmpty() ? tr("cash") : holding.join(", ")));
+        history_->setItem(i, HValue, new NumItem("$" + QLocale().toString(h.value("value").toDouble(), 'f', 0),
+                                                 h.value("value").toDouble()));
+        history_->setItem(i, HDay, pct(h.value("day_return"), true, 2));
+        history_->setItem(i, HTotal, pct(h.value("live_return"), true, 2));
+    }
 }
 
 void StrategiesPanel::load() {
@@ -205,6 +326,7 @@ void StrategiesPanel::render(const QJsonObject& data) {
 
         auto* name = new QTableWidgetItem((active ? QStringLiteral("● ") : QStringLiteral("   ")) +
                                           s.value("model").toString());
+        name->setData(Qt::UserRole, s.value("model").toString());
         if (active) {
             QFont f = name->font();
             f.setBold(true);
@@ -228,6 +350,21 @@ void StrategiesPanel::render(const QJsonObject& data) {
     table_->setSortingEnabled(true);
     if (sort_col >= 0 && sort_col < ColCount && table_->horizontalHeader()->isSortIndicatorShown())
         table_->sortItems(sort_col, sort_order);
+
+    // Keep the selected strategy selected across refreshes; start with the traded one
+    QString want = history_model_;
+    for (int i = 0; want.isEmpty() && i < rows.size(); ++i)
+        if (rows.at(i).toObject().value("active").toBool())
+            want = rows.at(i).toObject().value("model").toString();
+    for (int row = 0; row < table_->rowCount(); ++row) {
+        if (table_->item(row, Model) && table_->item(row, Model)->data(Qt::UserRole).toString() == want) {
+            QSignalBlocker block(table_);
+            table_->selectRow(row);
+            break;
+        }
+    }
+    history_model_ = want;
+    load_history();
 }
 
 } // namespace fincept::autotrade
