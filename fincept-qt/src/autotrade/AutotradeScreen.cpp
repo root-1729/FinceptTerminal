@@ -1,6 +1,7 @@
 #include "autotrade/AutotradeScreen.h"
 
 #include "autotrade/AutotradeApi.h"
+#include "autotrade/StrategiesPanel.h"
 #include "network/http/HttpClient.h"
 #include "ui/theme/Theme.h"
 
@@ -16,6 +17,7 @@
 #include <QPushButton>
 #include <QSignalBlocker>
 #include <QSplitter>
+#include <QTabWidget>
 #include <QTableWidget>
 #include <QTableWidgetItem>
 #include <QTimer>
@@ -157,8 +159,10 @@ void AutotradeScreen::build_ui() {
     sb->addStretch();
     root->addWidget(summary_bar_);
 
-    // ── Body: positions + orders | screener ─────────────────────────────────
-    auto* splitter = new QSplitter(Qt::Horizontal, this);
+    // ── Tabs: overview (positions + orders | screener) and strategies ───────
+    tabs_ = new QTabWidget(this);
+    tabs_->setDocumentMode(true);
+    auto* splitter = new QSplitter(Qt::Horizontal, tabs_);
     splitter->setChildrenCollapsible(false);
 
     auto* left = new QWidget(splitter);
@@ -207,7 +211,10 @@ void AutotradeScreen::build_ui() {
     splitter->addWidget(right);
     splitter->setStretchFactor(0, 1);
     splitter->setStretchFactor(1, 1);
-    root->addWidget(splitter, 1);
+    tabs_->addTab(splitter, QString());
+    strategies_ = new StrategiesPanel(tabs_);
+    tabs_->addTab(strategies_, QString());
+    root->addWidget(tabs_, 1);
 }
 
 void AutotradeScreen::apply_styles() {
@@ -253,11 +260,26 @@ void AutotradeScreen::apply_styles() {
         if (t)
             t->setStyleSheet(table_css);
 
+    if (tabs_)
+        tabs_->setStyleSheet(
+            QString("QTabWidget::pane { border: none; }"
+                    "QTabBar::tab { background: %1; color: %2; padding: 6px 16px; border: none; "
+                    "border-bottom: 2px solid transparent; font-size: 11px; font-weight: 700; }"
+                    "QTabBar::tab:selected { color: %3; border-bottom-color: %4; }"
+                    "QTabBar::tab:hover { color: %3; }")
+                .arg(ui::colors::BG_SURFACE(), ui::colors::TEXT_TERTIARY(), ui::colors::TEXT_PRIMARY(),
+                     ui::colors::AMBER()));
+    if (strategies_)
+        strategies_->apply_styles();
+
     set_connected(connected_, QString());
 }
 
 void AutotradeScreen::retranslate() {
     title_lbl_->setText(tr("AUTOTRADE"));
+    tabs_->setTabText(0, tr("OVERVIEW"));
+    tabs_->setTabText(1, tr("STRATEGIES"));
+    strategies_->retranslate();
     subtitle_lbl_->setText(tr("IBKR paper stack via %1").arg(api_base_url()));
     refresh_btn_->setText(tr("REFRESH"));
     refresh_btn_->setAccessibleName(tr("Refresh account, positions and orders now"));

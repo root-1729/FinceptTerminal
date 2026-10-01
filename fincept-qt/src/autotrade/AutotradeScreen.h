@@ -6,10 +6,13 @@
 class QComboBox;
 class QLabel;
 class QPushButton;
+class QTabWidget;
 class QTableWidget;
 class QTimer;
 
 namespace fincept::autotrade {
+
+class StrategiesPanel;
 
 /// Autotrade dashboard: live view of the autotrade stack through its api-gateway
 /// (see AutotradeApi.h for the URL). Shows service health, the IB account summary,
@@ -81,6 +84,8 @@ class AutotradeScreen : public QWidget {
     QString scan_before_id_;
     int scan_polls_left_ = 0;
     bool connected_ = false;
+    QTabWidget* tabs_ = nullptr;
+    StrategiesPanel* strategies_ = nullptr;
     bool restyling_ = false;
 };
 
