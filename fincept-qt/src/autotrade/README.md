@@ -20,6 +20,7 @@ orders: the autotrade execution engine is the only thing that trades.
 | `AutotradeApi.*` | api-gateway base URL |
 | `AutotradeScreen.*` | the screen and its OVERVIEW tab |
 | `StrategiesPanel.*` | the STRATEGIES tab |
+| `IntradayPanel.*` | the INTRADAY tab (intraday momentum on SPY: decisions, fills, real vs backtest) |
 | `ConditionsPanel.*` | the CONDITIONS tab (market/macro conditions vs the strategy's history) |
 | `autotrade.cmake` | adds the sources to the `FinceptTerminal` target; lists the upstream hooks |
 
