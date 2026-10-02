@@ -17,4 +17,5 @@ target_sources(FinceptTerminal PRIVATE
     ${CMAKE_CURRENT_LIST_DIR}/AutotradeApi.cpp
     ${CMAKE_CURRENT_LIST_DIR}/AutotradeScreen.cpp
     ${CMAKE_CURRENT_LIST_DIR}/StrategiesPanel.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/ConditionsPanel.cpp
 )

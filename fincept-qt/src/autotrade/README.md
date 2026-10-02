@@ -20,6 +20,7 @@ orders: the autotrade execution engine is the only thing that trades.
 | `AutotradeApi.*` | api-gateway base URL |
 | `AutotradeScreen.*` | the screen and its OVERVIEW tab |
 | `StrategiesPanel.*` | the STRATEGIES tab |
+| `ConditionsPanel.*` | the CONDITIONS tab (market/macro conditions vs the strategy's history) |
 | `autotrade.cmake` | adds the sources to the `FinceptTerminal` target; lists the upstream hooks |
 
 All code is in this folder. Upstream files carry only small additions, each marked

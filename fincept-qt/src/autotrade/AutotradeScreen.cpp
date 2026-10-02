@@ -1,6 +1,7 @@
 #include "autotrade/AutotradeScreen.h"
 
 #include "autotrade/AutotradeApi.h"
+#include "autotrade/ConditionsPanel.h"
 #include "autotrade/StrategiesPanel.h"
 #include "network/http/HttpClient.h"
 #include "ui/theme/Theme.h"
@@ -218,6 +219,8 @@ void AutotradeScreen::build_ui() {
     tabs_->addTab(splitter, QString());
     strategies_ = new StrategiesPanel(tabs_);
     tabs_->addTab(strategies_, QString());
+    conditions_ = new ConditionsPanel(tabs_);
+    tabs_->addTab(conditions_, QString());
     root->addWidget(tabs_, 1);
 }
 
@@ -275,6 +278,8 @@ void AutotradeScreen::apply_styles() {
                      ui::colors::AMBER()));
     if (strategies_)
         strategies_->apply_styles();
+    if (conditions_)
+        conditions_->apply_styles();
 
     set_connected(connected_, QString());
 }
@@ -283,6 +288,8 @@ void AutotradeScreen::retranslate() {
     title_lbl_->setText(tr("AUTOTRADE"));
     tabs_->setTabText(0, tr("OVERVIEW"));
     tabs_->setTabText(1, tr("STRATEGIES"));
+    tabs_->setTabText(2, tr("CONDITIONS"));
+    conditions_->retranslate();
     strategies_->retranslate();
     subtitle_lbl_->setText(tr("IBKR paper stack via %1").arg(api_base_url()));
     refresh_btn_->setText(tr("REFRESH"));
