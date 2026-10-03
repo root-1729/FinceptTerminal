@@ -65,8 +65,12 @@ QString ps_map(const QJsonValue& v) {
         return QStringLiteral("—");
     QStringList parts;
     const QJsonObject o = v.toObject();
-    for (auto it = o.begin(); it != o.end(); ++it)
-        parts << it.key() + " " + QLocale().toString(it.value().toDouble(), 'g', 6);
+    for (auto it = o.begin(); it != o.end(); ++it) {
+        if (it.value().isDouble())
+            parts << it.key() + " " + QLocale().toString(it.value().toDouble(), 'g', 6);
+        else if (!it.value().isNull())
+            parts << it.key() + " " + it.value().toVariant().toString();
+    }
     return parts.join(" · ");
 }
 
