@@ -13,6 +13,7 @@ class QTimer;
 namespace fincept::autotrade {
 
 class ConditionsPanel;
+class AccountsPanel;
 class PlatformStrategiesPanel;
 class StrategiesPanel;
 
@@ -88,6 +89,7 @@ class AutotradeScreen : public QWidget {
     bool connected_ = false;
     QTabWidget* tabs_ = nullptr;
     PlatformStrategiesPanel* platform_ = nullptr;
+    AccountsPanel* accounts_ = nullptr;
     StrategiesPanel* strategies_ = nullptr;
     ConditionsPanel* conditions_ = nullptr;
     bool restyling_ = false;
