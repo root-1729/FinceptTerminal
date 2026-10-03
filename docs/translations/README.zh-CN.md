@@ -1,284 +1,146 @@
-# 金融终端
+> [!IMPORTANT]
+> ## 🔒 Fincept Terminal **Enterprise** — 私有版本。上线特价：**立减 90%，限时。**
+> 自有实时数据 · 多智能体 AI 研究 · 实时券商与算法交易 · 优先支持
+>
+> | 方案 | 原价 | **上线特价** |
+> |:--|:--:|:--:|
+> | **Exclusive** | ~~99 美元~~ | **10 美元** /用户/月 |
+> | **Exclusive+** | ~~199 美元~~ | **20 美元** /用户/月 |
+> | **Exclusive Pro** ⭐ 最受欢迎 | ~~299 美元~~ | **40 美元** /用户/月 |
+>
+> [![🔥 锁定上线特价 →](https://img.shields.io/badge/%F0%9F%94%A5_%E9%94%81%E5%AE%9A%E4%B8%8A%E7%BA%BF%E7%89%B9%E4%BB%B7_%E2%86%92-C06524?style=for-the-badge)](https://fincept.in/enterprise/signup) &nbsp; [![比较方案](https://img.shields.io/badge/%E6%AF%94%E8%BE%83%E6%96%B9%E6%A1%88-1F2328?style=for-the-badge)](https://fincept.in/pricing)
+>
+> <sub>早期席位永久锁定上线特价 · 无年度绑定，随时取消 · 本开源仓库继续以 AGPL-3.0 免费提供</sub>
+
+# Fincept Terminal
 
 <div align="center">
 
-[![License: AGPL-3.0](https://img.shields.io/badge/license-AGPL--3.0-C06524)](https://github.com/Fincept-Corporation/FinceptTerminal/blob/main/LICENSE)[![Tauri](https://img.shields.io/badge/Tauri-2.0-FFC131?logo=tauri)](https://tauri.app/)[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)](https://react.dev/)[![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6?logo=typescript)](https://www.typescriptlang.org/)[![Rust](https://img.shields.io/badge/Rust-1.70+-CE422B?logo=rust)](https://www.rust-lang.org/)[![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)](https://www.python.org/)[![Hits](https://hits.sh/github.com/Fincept-Corporation/FinceptTerminal.svg?label=Visits)](https://hits.sh/github.com/Fincept-Corporation/FinceptTerminal/)
+[![License: AGPL-3.0](https://img.shields.io/badge/license-AGPL--3.0-C06524)](https://github.com/Fincept-Corporation/FinceptTerminal/blob/main/LICENSE)
+[![C++20](https://img.shields.io/badge/C%2B%2B-20-00599C?logo=cplusplus)](https://isocpp.org/)
+[![Qt6](https://img.shields.io/badge/Qt-6-41CD52?logo=qt&logoColor=white)](https://www.qt.io/)
+[![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 
-[![Twitter](https://img.shields.io/badge/-Twitter-1DA1F2?style=flat-square&logo=twitter&logoColor=white)](https://twitter.com/intent/tweet?text=Check%20out%20FinceptTerminal&url=https%3A//github.com/Fincept-Corporation/FinceptTerminal/)[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/sharing/share-offsite/?url=https%3A//github.com/Fincept-Corporation/FinceptTerminal/)[![Facebook](https://img.shields.io/badge/-Facebook-1877F2?style=flat-square&logo=facebook&logoColor=white)](https://www.facebook.com/sharer/sharer.php?u=https%3A//github.com/Fincept-Corporation/FinceptTerminal/)[![Reddit](https://img.shields.io/badge/-Reddit-FF4500?style=flat-square&logo=reddit&logoColor=white)](https://www.reddit.com/submit?url=https%3A//github.com/Fincept-Corporation/FinceptTerminal/&title=FinceptTerminal)[![WhatsApp](https://img.shields.io/badge/-WhatsApp-25D366?style=flat-square&logo=whatsapp&logoColor=white)](https://api.whatsapp.com/send?text=Check%20out%20FinceptTerminal%3A%20https%3A//github.com/Fincept-Corporation/FinceptTerminal/)
+### **唯一的上限是你的思考，而不是数据。**
 
-[英语](README.md)\|[西班牙语](docs/translations/README.es.md)\|[中文](docs/translations/README.zh-CN.md)\|[日本人](docs/translations/README.ja.md)\|[法语](docs/translations/README.fr.md)\|[德语](docs/translations/README.de.md)\|[韩国人](docs/translations/README.ko.md)\|[印地语](docs/translations/README.hi.md)
+面向机构级金融分析、AI 自动化与无限数据接入的前沿金融智能平台。
 
-### **你的思维是唯一的限制。数据不是。**
+[📥 下载](https://github.com/Fincept-Corporation/FinceptTerminal/releases) · [🏢 Enterprise](https://fincept.in/enterprise) · [💳 价格](https://fincept.in/pricing) · [📖 手册](https://fincept.in/manual) · [💬 Discord](https://discord.gg/ae87a8ygbN)
 
-最先进的金融情报平台，具有 CFA 级分析、人工智能自动化和无限数据连接。
-
-[📥 下载](https://github.com/Fincept-Corporation/FinceptTerminal/releases)•[📚 文档](https://github.com/Fincept-Corporation/FinceptTerminal/tree/main/docs)•[💬 讨论](https://github.com/Fincept-Corporation/FinceptTerminal/discussions)•[💬 不和谐](https://discord.gg/ae87a8ygbN)•[🤝 合作伙伴](https://github.com/Fincept-Corporation/FinceptTerminal/blob/main/docs/COMMERCIAL_LICENSE.md)
-
-![Fincept Terminal](https://raw.githubusercontent.com/Fincept-Corporation/FinceptTerminal/main/images/Equity.png)
+![Fincept Terminal](https://raw.githubusercontent.com/Fincept-Corporation/FinceptTerminal/main/images/FinceptBanner.png)
 
 </div>
 
-* * *
+---
 
-<!-- DOWNLOAD_SECTION_START -->
+## 关于
 
-## 下载最新版本
+**Fincept Terminal** 是一款用于金融研究的原生 C++20 桌面终端 —— Qt6 界面、内嵌 Python 3.11 分析引擎、单一二进制文件，不依赖 Electron。
 
-**版本：**`v3.3.0`
+两个版本运行在同一数据内核之上。**[Enterprise](https://fincept.in/enterprise)** 是团队日常开发的私有闭源版本，面向基金、家族办公室和研究部门。**本仓库**是免费的 AGPL-3.0 版本 —— 学习、个人使用、学术研究 —— 每月发布一次。
 
-| 平台        | 建筑学         | 下载                                                                                                                              |
-| --------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| **macOS** | 苹果硅         | [下载](https://github.com/Fincept-Corporation/FinceptTerminal/releases/download/v3.3.0/FinceptTerminal-v3.3.0-macOS-arm64.dmg)    |
-| **macOS** | 英特尔         | [下载](https://github.com/Fincept-Corporation/FinceptTerminal/releases/download/v3.3.0/FinceptTerminal-v3.3.0-macOS-x64.dmg)      |
-| **Linux** | x64（应用程序图像） | [下载](https://github.com/Fincept-Corporation/FinceptTerminal/releases/download/v3.3.0/FinceptTerminal-v3.3.0-Linux-x64.AppImage) |
-| **Linux** | x64（Debian） | [下载](https://github.com/Fincept-Corporation/FinceptTerminal/releases/download/v3.3.0/FinceptTerminal-v3.3.0-Linux-x64.deb)      |
-| **视窗**    | 哈什奇         | [下载](https://github.com/Fincept-Corporation/FinceptTerminal/releases/download/v3.3.0/FinceptTerminal-v3.3.0-Windows-x64.msi)    |
+如果你是学生、爱好者或学术研究者，用开源版。如果你是机构，或者靠终端赚钱，用 Enterprise：AGPL 的传染性条款不适用，而开源版的真实成本是你自己的数据与 LLM 账单，按 token 计费且没有上限。
 
-[查看所有版本](https://github.com/Fincept-Corporation/FinceptTerminal/releases)
+| | 开源版 | **Enterprise** |
+|---|---|---|
+| **许可证** | AGPL-3.0 —— 强传染性 | 专有 —— 无 copyleft 义务 |
+| **成本** | 免费，另加自付的数据与 LLM 账单 | 每用户每月 ~~99 / 199 / 299 美元~~ **10 / 20 / 40 美元**（上线特价）|
+| **数据** | 免费公开数据源，需自备密钥 | 专有数据集、更长历史、时点数据 |
+| **AI** | 自备 LLM 密钥 | 含 400–5,000 积分 · 多智能体研究 · 私有数据室 |
+| **交易** | 模拟交易 + 券商接入 | 实时券商路由 + 实时算法部署 |
+| **管控** | — | SSO/SAML、审计日志、RBAC、SLA 保障支持 |
 
-<!-- DOWNLOAD_SECTION_END -->
+[**了解 Enterprise →**](https://fincept.in/enterprise) · [完整对比](https://fincept.in/comparison) · [价格](https://fincept.in/pricing) · [常见问题](https://fincept.in/faq)
 
-* * *
+---
 
-## 🎯 是什么让我们与众不同
+## Enterprise
 
-**金融终端**是一个为那些拒绝受传统软件限制的人打造的开源金融平台。我们竞争的是**分析深度**和**数据可访问性**- 不在内部信息或独家提要中。
+六大业务台、41 个模块 —— 智能体研究、量化实验室与回测、深度基本面研究、市场与执行、宏观与全球情报，以及你的专属工作区。全部收录于一本 [700 页手册](https://fincept.in/manual)。
 
-| **特征**       | **金融终端**                                                                      | **源代码**                                                                                                                                                                                                                                                        |
-| ------------ | ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 📊**分析**     | 使用 Python 完成 CFA 1、2、3 级课程 • DCF 模型 • 投资组合优化 • 风险指标（VaR、夏普）                   | [分析模块](https://github.com/Fincept-Corporation/FinceptTerminal/tree/main/fincept-terminal-desktop/src-tauri/resources/scripts/Analytics)                                                                                                                        |
-| 🤖**人工智能代理** | 20 多个投资者角色（巴菲特、达利奥、格雷厄姆） • 对冲基金策略（Bridgewater、Citadel、Renaissance） • 本地法学硕士支持 | [人工智能代理](https://github.com/Fincept-Corporation/FinceptTerminal/tree/main/fincept-terminal-desktop/src-tauri/resources/scripts/agents)                                                                                                                         |
-| 🌐**数据存取**   | 100 多个连接器（DBnomics、Polygon、Kraken、PostgreSQL、Kafka） • 自定义 API 映射器 • 零数据限制     | [数据适配器](https://github.com/Fincept-Corporation/FinceptTerminal/tree/main/fincept-terminal-desktop/src/components/tabs/data-sources/adapters)                                                                                                                   |
-| 🔗**跨域**     | 整合供应链 → 产品组合 • 地缘政治 → 股权 • 海事 → 宏观 • 您的数据，您的方式                                | [工作流程系统](https://github.com/Fincept-Corporation/FinceptTerminal/tree/main/fincept-terminal-desktop/src/components/tabs/node-editor)                                                                                                                            |
-| 🎨**工作流程**   | 可视化节点编辑器 • Python 代理 • MCP 工具 • 无代码自动化                                        | [自定义节点](https://github.com/Fincept-Corporation/FinceptTerminal/tree/main/fincept-terminal-desktop/src/components/tabs/node-editor)•[MCP服务器](https://github.com/Fincept-Corporation/FinceptTerminal/tree/main/fincept-terminal-desktop/src/components/tabs/mcp) |
-| 🚢**智力**     | 3D 海上跟踪 • 卫星监测 • 地缘政治框架 • 贸易路线分析                                              | [海事标签](https://github.com/Fincept-Corporation/FinceptTerminal/tree/main/fincept-terminal-desktop/src/components/tabs)                                                                                                                                          |
-| 💰**定价**     | 免费和开源 (AGPL-3.0) • 提供商业许可证                                                    | [完整的存储库](https://github.com/Fincept-Corporation/FinceptTerminal)•[商业许可](https://github.com/Fincept-Corporation/FinceptTerminal/blob/main/docs/COMMERCIAL_LICENSE.md)                                                                                           |
+| | **Exclusive** | **Exclusive+** | **Exclusive Pro** ★ |
+|---|---|---|---|
+| | ~~99 美元~~ **10 美元**/用户/月 | ~~199 美元~~ **20 美元**/用户/月 | ~~299 美元~~ **40 美元**/用户/月 |
+| AI 积分 / 月 | 400 | 2,000 | 5,000 |
+| 深度研究 + 智能体团队 | — | ✓ | ✓ |
+| 实时交易 + 算法 | — | — | ✓ |
 
-* * *
+按月付费、无绑定、无最低席位数、按季付费享 9 折 —— 上线特价下折合**每用户每年 120–480 美元**，而一个彭博终端席位约为 27,000 美元。**高校：** 5 个 Exclusive Pro 席位每月 **699 美元**。这就是全部价格表：没有议价报价，也没有单独出售的商业许可证。
 
-## 🚀 核心能力
+Enterprise 需要独立账号 —— 免费 Fincept 账号无法登录。
 
-<table>
-<tr>
-<td width="50%" valign="top">
+[**创建账号**](https://fincept.in/enterprise/signup) · [**预约演示**](https://calendly.com/nikultilak/fincept-terminal-demo)
 
-### **📊 CFA 级别分析**
+---
 
-![Dashboard](https://raw.githubusercontent.com/Fincept-Corporation/FinceptTerminal/main/images/Dashboard.png)
+## 安装
 
-**投资组合管理**
+**Windows x64**、**Linux x64**（`.run` / `.deb` / `.rpm`）与 **macOS（Apple 芯片）**的安装包见 [Releases 页面](https://github.com/Fincept-Corporation/FinceptTerminal/releases/latest)。
 
--   夏普比率、VaR (95%)、最大回撤
--   投资组合优化（最大夏普）
--   多资产配置策略
+**从源码构建** —— Linux/macOS：`git clone … && ./setup.sh`。Windows、手动构建、锁定的工具链（**CMake 3.27.7 · Ninja 1.11.1 · Qt 6.8.3 · Python 3.11.9**）与故障排查见 **[docs/GETTING_STARTED.md](../GETTING_STARTED.md)**。版本已锁定，更新或更旧的版本均不受支持。
 
-**股权估值**
+> 在找 Enterprise 版本？它有面向 Windows、macOS 与 Linux 的独立签名安装包，需通过 Enterprise 账号登录获取 —— [在此获取](https://fincept.in/enterprise)。
 
--   DCF 模型（FCFF、FCFE）
--   股息折扣模型
--   倍数和剩余收入
+---
 
-**衍生品与风险**
+## 开源版包含什么
 
--   期权定价和希腊人
--   对冲策略
--   高级风险分析
+- **分析** —— DCF、组合优化、VaR/夏普比率、衍生品定价、固定收益、另类资产，外加 18 个模块的 QuantLib 套件
+- **AI** —— 覆盖交易员/投资人、经济与地缘政治的 37 个智能体；需自备密钥（OpenAI、Anthropic、Gemini、Groq、DeepSeek、OpenRouter、Ollama）
+- **数据** —— 100 多个连接器：FRED、IMF、世界银行、DBnomics、AkShare、Polygon、Kraken、Yahoo Finance、政府 API
+- **交易** —— 加密货币与股票行情、模拟交易引擎、16 家券商接入
+- **自动化** —— 可视化节点编辑器、MCP 工具、AI Quant Lab（机器学习、因子挖掘、强化学习）
+- **全球情报** —— 海运追踪、地缘政治分析、关系图谱
 
-</td>
-<td width="50%" valign="top">
+原生 C++20 · Qt6 · 内嵌 Python 3.11 · 单一二进制 · 无 Node.js、无浏览器运行时。
 
-### **🤖 人工智能驱动的自动化**
+---
 
-![Chat](https://raw.githubusercontent.com/Fincept-Corporation/FinceptTerminal/main/images/Chat.png)
+## 本仓库的维护方式
 
-**投资者代理**
+本仓库**将持续公开，不会被删除**。已经发布的内容会一直保留。
 
--   沃伦·巴菲特、本杰明·格雷厄姆、塞斯·卡拉曼
--   雷·达里奥、乔治·索罗斯、彼得·林奇
--   20+ 传奇投资人物
+现在改为**每月发布一次**，而非持续开发，因为团队的日常工作在 Enterprise 上。Issue 与 Pull Request 仍会审阅，修复按月度周期发布。安全问题请报告至 [support@fincept.in](mailto:support@fincept.in)。
 
-**对冲基金系统**
+---
 
--   布里奇沃特全天候方法
--   Citadel 多策略量化
--   文艺复兴科技统计模型
+## 参与贡献
 
-**工作流程生成器**
+欢迎提交新的数据连接器、AI 智能体、分析模块、C++ 界面与文档。
 
--   ReactFlow visual editor
--   100+ MCP 工具集成
--   Python 代理编排
+[贡献指南](../CONTRIBUTING.md) · [C++ 指南](../CPP_CONTRIBUTOR_GUIDE.md) · [Python 指南](../PYTHON_CONTRIBUTOR_GUIDE.md) · [架构说明](../ARCHITECTURE.md) · [报告缺陷](https://github.com/Fincept-Corporation/FinceptTerminal/issues) · [提出需求](https://github.com/Fincept-Corporation/FinceptTerminal/discussions)
 
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
+---
 
-### **🌐 无限制的数据访问**
+## Fincept 的其他产品
 
-![Markets](https://raw.githubusercontent.com/Fincept-Corporation/FinceptTerminal/main/images/Markets.png)
+- **[Fincept Data API](https://docs.fincept.in)** —— 500 多个 REST 接口、423,000 多个标的、2,000 多个数据源。任何账号均含免费额度。
+- **[Quantcept](https://quantcept.io)** —— 面向市场的 AI 研究工作台：一手数据、回测、投资组合、文档与全天候监控。免费起步；Alpha 14 美元 / Apex 24 美元（30 天）。
 
-**100 多个数据连接器**
+---
 
--   **数据库**：PostgreSQL、MySQL、MongoDB、Redis、雪花
--   **市场数据**：Kraken、Polygon.io、Alpha Vantage、雅虎财经
--   **经济学**：DBnomics（100M+系列）、世界银行、国际货币基金组织、经济合作与发展组织
--   **流媒体**：卡夫卡、WebSocket、MQTT
--   **自定义 API 映射器**：在几分钟内连接任何 API
+## 许可证
 
-</td>
-<td width="50%" valign="top">
+**AGPL-3.0-or-later** —— 全文见 [LICENSE](https://github.com/Fincept-Corporation/FinceptTerminal/blob/main/LICENSE)。
 
-### **🔬 全球情报**
+个人使用、学习与学术研究免费。AGPL-3.0 是**强传染性许可证，而非宽松许可证**：如果你分发修改过的版本，或将其作为他人可访问的服务运行，就必须以相同许可证公开你的修改。对大多数法务团队而言，讨论到这一条就结束了 —— 这也是企业选择 **[Enterprise](https://fincept.in/enterprise)** 的原因：它是专有软件，没有任何 copyleft 义务需要处理。不涉及分发的个人使用则没有任何义务。
 
-![Global Trade](https://raw.githubusercontent.com/Fincept-Corporation/FinceptTerminal/main/images/GlobalTrade.png)
+对于本仓库，Fincept 不再出售单独的商业或学术许可证。商业、企业与高校需求由 **[Fincept Terminal Enterprise](https://fincept.in/enterprise)** 按上述公开价格提供。
 
-**海事与供应链**
+**商标。** “Fincept”、“Fincept Terminal” 及 Fincept 标识均为 Fincept Corporation 的商标。在任何分叉、衍生、改名或商业产品中使用，均须事先获得书面许可。
 
--   具有船舶/飞机/卫星跟踪功能的 3D 地球仪
--   实时 AIS 数据 • 贸易路线 • 轨道路径
+咨询：[support@fincept.in](mailto:support@fincept.in) · [服务条款](https://fincept.in/terms) · [隐私政策](https://fincept.in/privacy)
 
-**地缘政治分析**
+© 2025–2026 Fincept Corporation. 保留所有权利。
 
--   大棋盘框架
--   地理模型的囚徒
--   中央银行和政策跟踪
-
-**股票研究**
-
--   全球股票分析 • 财务可视化
--   分析师目标 • 估值指标
-
-</td>
-</tr>
-</table>
-
-* * *
-
-## 🎬 更多功能
+---
 
 <div align="center">
 
-|                                                    经济分析                                                   |                                                   股票研究                                                  |                                                       地缘政治风险                                                      |
-| :-------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------: |
-| ![Economy](https://raw.githubusercontent.com/Fincept-Corporation/FinceptTerminal/main/images/Economy.png) | ![Equity](https://raw.githubusercontent.com/Fincept-Corporation/FinceptTerminal/main/images/Equity.png) | ![Geopolitics](https://raw.githubusercontent.com/Fincept-Corporation/FinceptTerminal/main/images/Geopolitics.png) |
-|                                              GDP、通货膨胀、利率、增长周期                                             |                                              财务报表、DCF、分析师报道                                             |                                                    全球风险监控和情景分析                                                    |
+### **唯一的上限是你的思考，而不是数据。**
 
-</div>
+⭐ **点星** · 🔄 **分享** · 🤝 **贡献**
 
-* * *
-
-## 📥 下载
-
-**vz. 0.11**| Windows • macOS • Linux
-
-[![Download](https://img.shields.io/badge/Download-Latest%20Release-brightgreen?style=for-the-badge)](https://github.com/Fincept-Corporation/FinceptTerminal/releases)[![Microsoft Store](https://img.shields.io/badge/Microsoft%20Store-Get%20App-blue?style=for-the-badge&logo=microsoft)](https://apps.microsoft.com/detail/XPDDZR13CXS466?hl=en-US&gl=IN&ocid=pdpshare)
-
-**从源代码构建：**
-
-```bash
-git clone https://github.com/Fincept-Corporation/FinceptTerminal.git
-cd FinceptTerminal/fincept-terminal-desktop
-bun install && bun run tauri:dev
-```
-
-**要求：**
-
--   [好的](https://bun.sh)1.0+
--   [锈](https://www.rust-lang.org/)（最新稳定）
--   特定于平台的依赖项（请参阅[文档/GETTING_STARTED.md](docs/GETTING_STARTED.md))
-
-### macOS 安装（未签名版本）
-
-⚠️**重要的：**开发和工件构建未使用 Apple 开发人员证书进行签名。
-
-**下载DMG后：**
-
-```bash
-# Remove quarantine flag from DMG
-xattr -cr ~/Downloads/FinceptTerminal-*.dmg
-
-# Open DMG, drag to Applications, then remove quarantine from app
-xattr -cr /Applications/FinceptTerminal.app
-```
-
-**选择：**右键单击该应用程序→选择“打开”→在警告对话框中单击“打开”。
-
-官方发布的[发布页面](https://github.com/Fincept-Corporation/FinceptTerminal/releases)包括详细的安装说明。
-
-* * *
-
-## 🛣️ 接下来是什么
-
-**2026 年第一季度：**增强的实时流 • 高级回溯测试 • 期权策略构建器 • 50 多个人工智能代理**2026：**模拟交易 • 多投资组合管理 • 移动应用程序 • 社交交易**未来：**机构功能 • 编程 API • ML 培训 UI • 白标解决方案
-
-* * *
-
-## 🤝 贡献
-
-我们正在共同建设财务分析的未来。
-
-**贡献：**新数据连接器 • AI 代理 • 分析模块 • 文档 • 翻译
-
-[贡献指南](docs/CONTRIBUTING.md)•[报告错误](https://github.com/Fincept-Corporation/FinceptTerminal/issues)•[请求功能](https://github.com/Fincept-Corporation/FinceptTerminal/discussions)
-
-* * *
-
-## 🎓 对于大学和教育工作者
-
-**将专业级财务分析带入您的课堂。**
-
--   **$799/月**20 个帐户
--   完全访问 Fincept 数据和 API
--   非常适合金融、经济学和数据科学课程
--   内置 CFA 课程分析
-
-**感兴趣的？**电子邮件**[support@fincept.in](mailto:support@fincept.in)**与您的机构名称。
-
-[大学许可详情](https://github.com/Fincept-Corporation/FinceptTerminal/blob/main/docs/COMMERCIAL_LICENSE.md)
-
-* * *
-
-## 📜 许可证
-
-**双重许可：AGPL-3.0（开源）+商业**
-
-### 开源 (AGPL-3.0)
-
--   免费供个人、教育和非商业用途
--   分发或用作网络服务时需要共享修改
--   源代码完全透明
-
-### 商业许可
-
--   商业用途或商业访问 Fincept 数据/API 所需
--   接触：**[support@fincept.in](mailto:support@fincept.in)**
--   细节：[商业许可指南](https://github.com/Fincept-Corporation/FinceptTerminal/blob/main/docs/COMMERCIAL_LICENSE.md)
-
-### 商标
-
-“Fincept Terminal”和“Fincept”是Fincept Corporation 的商标。
-
-© 2025-2026 Fincept 公司。版权所有。
-
-* * *
-
-<div align="center">
-
-### **你的思维是唯一的限制。数据不是。**
-
-<div align="center">
-<a href="https://star-history.com/#Fincept-Corporation/FinceptTerminal&Date">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Fincept-Corporation/FinceptTerminal&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Fincept-Corporation/FinceptTerminal&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Fincept-Corporation/FinceptTerminal&type=Date" />
- </picture>
-</a>
-</div>
-
-[![Email](https://img.shields.io/badge/Email-support@fincept.in-blue)](mailto:support@fincept.in)
-
-⭐**星星**• 🔄**分享**• 🤝**贡献**
+<sub>英文原版：<a href="../../README.md">README.md</a></sub>
 
 </div>

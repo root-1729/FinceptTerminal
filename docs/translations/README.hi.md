@@ -1,284 +1,146 @@
-# फिनसेप्ट टर्मिनल
+> [!IMPORTANT]
+> ## 🔒 Fincept Terminal **Enterprise** — निजी संस्करण। लॉन्च कीमत: **90% छूट, सीमित समय के लिए।**
+> प्रोप्राइटरी रीयल-टाइम डेटा · मल्टी-एजेंट AI रिसर्च · लाइव ब्रोकर और एल्गो एग्ज़ीक्यूशन · प्राथमिकता सपोर्ट
+>
+> | प्लान | पहले | **लॉन्च कीमत** |
+> |:--|:--:|:--:|
+> | **Exclusive** | ~~$99~~ | **$10** /उपयोगकर्ता/माह |
+> | **Exclusive+** | ~~$199~~ | **$20** /उपयोगकर्ता/माह |
+> | **Exclusive Pro** ⭐ सबसे लोकप्रिय | ~~$299~~ | **$40** /उपयोगकर्ता/माह |
+>
+> [![🔥 लॉन्च कीमत पाएं →](https://img.shields.io/badge/%F0%9F%94%A5_%E0%A4%B2%E0%A5%89%E0%A4%A8%E0%A5%8D%E0%A4%9A_%E0%A4%95%E0%A5%80%E0%A4%AE%E0%A4%A4_%E0%A4%AA%E0%A4%BE%E0%A4%8F%E0%A4%82_%E2%86%92-C06524?style=for-the-badge)](https://fincept.in/enterprise/signup) &nbsp; [![प्लान तुलना करें](https://img.shields.io/badge/%E0%A4%AA%E0%A5%8D%E0%A4%B2%E0%A4%BE%E0%A4%A8_%E0%A4%A4%E0%A5%81%E0%A4%B2%E0%A4%A8%E0%A4%BE_%E0%A4%95%E0%A4%B0%E0%A5%87%E0%A4%82-1F2328?style=for-the-badge)](https://fincept.in/pricing)
+>
+> <sub>शुरुआती सीटों पर लॉन्च कीमत हमेशा के लिए लॉक · कोई वार्षिक बंधन नहीं, कभी भी रद्द करें · यह ओपन-सोर्स रिपॉज़िटरी AGPL-3.0 के तहत मुफ़्त रहेगी</sub>
+
+# Fincept Terminal
 
 <div align="center">
 
-[![License: AGPL-3.0](https://img.shields.io/badge/license-AGPL--3.0-C06524)](https://github.com/Fincept-Corporation/FinceptTerminal/blob/main/LICENSE)[![Tauri](https://img.shields.io/badge/Tauri-2.0-FFC131?logo=tauri)](https://tauri.app/)[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)](https://react.dev/)[![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6?logo=typescript)](https://www.typescriptlang.org/)[![Rust](https://img.shields.io/badge/Rust-1.70+-CE422B?logo=rust)](https://www.rust-lang.org/)[![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)](https://www.python.org/)[![Hits](https://hits.sh/github.com/Fincept-Corporation/FinceptTerminal.svg?label=Visits)](https://hits.sh/github.com/Fincept-Corporation/FinceptTerminal/)
+[![License: AGPL-3.0](https://img.shields.io/badge/license-AGPL--3.0-C06524)](https://github.com/Fincept-Corporation/FinceptTerminal/blob/main/LICENSE)
+[![C++20](https://img.shields.io/badge/C%2B%2B-20-00599C?logo=cplusplus)](https://isocpp.org/)
+[![Qt6](https://img.shields.io/badge/Qt-6-41CD52?logo=qt&logoColor=white)](https://www.qt.io/)
+[![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 
-[![Twitter](https://img.shields.io/badge/-Twitter-1DA1F2?style=flat-square&logo=twitter&logoColor=white)](https://twitter.com/intent/tweet?text=Check%20out%20FinceptTerminal&url=https%3A//github.com/Fincept-Corporation/FinceptTerminal/)[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/sharing/share-offsite/?url=https%3A//github.com/Fincept-Corporation/FinceptTerminal/)[![Facebook](https://img.shields.io/badge/-Facebook-1877F2?style=flat-square&logo=facebook&logoColor=white)](https://www.facebook.com/sharer/sharer.php?u=https%3A//github.com/Fincept-Corporation/FinceptTerminal/)[![Reddit](https://img.shields.io/badge/-Reddit-FF4500?style=flat-square&logo=reddit&logoColor=white)](https://www.reddit.com/submit?url=https%3A//github.com/Fincept-Corporation/FinceptTerminal/&title=FinceptTerminal)[![WhatsApp](https://img.shields.io/badge/-WhatsApp-25D366?style=flat-square&logo=whatsapp&logoColor=white)](https://api.whatsapp.com/send?text=Check%20out%20FinceptTerminal%3A%20https%3A//github.com/Fincept-Corporation/FinceptTerminal/)
+### **आपकी सोच ही एकमात्र सीमा है। डेटा नहीं।**
 
-[अंग्रेज़ी](README.md)\|[स्पैनिश](docs/translations/README.es.md)\|[चीनी](docs/translations/README.zh-CN.md)\|[जापानी](docs/translations/README.ja.md)\|[फ़्रेंच](docs/translations/README.fr.md)\|[जर्मन](docs/translations/README.de.md)\|[कोरियाई](docs/translations/README.ko.md)\|[हिन्दी](docs/translations/README.hi.md)
+संस्थागत स्तर के वित्तीय विश्लेषण, AI ऑटोमेशन और असीमित डेटा कनेक्टिविटी वाला अत्याधुनिक फाइनेंशियल इंटेलिजेंस प्लेटफ़ॉर्म।
 
-### **आपकी सोच ही एकमात्र सीमा है. डेटा नहीं है.**
+[📥 डाउनलोड](https://github.com/Fincept-Corporation/FinceptTerminal/releases) · [🏢 Enterprise](https://fincept.in/enterprise) · [💳 मूल्य](https://fincept.in/pricing) · [📖 मैनुअल](https://fincept.in/manual) · [💬 Discord](https://discord.gg/ae87a8ygbN)
 
-सीएफए-स्तरीय एनालिटिक्स, एआई ऑटोमेशन और असीमित डेटा कनेक्टिविटी के साथ अत्याधुनिक वित्तीय खुफिया मंच।
-
-[📥 Download](https://github.com/Fincept-Corporation/FinceptTerminal/releases)•[📚 दस्तावेज़](https://github.com/Fincept-Corporation/FinceptTerminal/tree/main/docs)•[💬चर्चाएँ](https://github.com/Fincept-Corporation/FinceptTerminal/discussions)•[💬 कलह](https://discord.gg/ae87a8ygbN)•[🤝साथी](https://github.com/Fincept-Corporation/FinceptTerminal/blob/main/docs/COMMERCIAL_LICENSE.md)
-
-![Fincept Terminal](https://raw.githubusercontent.com/Fincept-Corporation/FinceptTerminal/main/images/Equity.png)
+![Fincept Terminal](https://raw.githubusercontent.com/Fincept-Corporation/FinceptTerminal/main/images/FinceptBanner.png)
 
 </div>
 
-* * *
+---
 
-<!-- DOWNLOAD_SECTION_START -->
+## परिचय
 
-## नवीनतम रिलीज़ डाउनलोड करें
+**Fincept Terminal** वित्तीय शोध के लिए बना एक नेटिव C++20 डेस्कटॉप टर्मिनल है — Qt6 इंटरफ़ेस, एम्बेडेड Python 3.11 एनालिटिक्स, एक ही बाइनरी, कोई Electron नहीं।
 
-**संस्करण:**`v3.3.0`
+एक ही डेटा कोर पर दो संस्करण चलते हैं। **[Enterprise](https://fincept.in/enterprise)** निजी, क्लोज़्ड-सोर्स बिल्ड है जिस पर टीम रोज़ाना काम करती है — फंड्स, फैमिली ऑफिस और रिसर्च डेस्क के लिए। **यह रिपॉज़िटरी** मुफ़्त AGPL-3.0 संस्करण है — सीखना, निजी उपयोग, शैक्षणिक शोध — जिसमें महीने में एक रिलीज़ आती है।
 
-| प्लैटफ़ॉर्म   | वास्तुकला     | Download                                                                                                                              |
-| ------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| **मैक ओएस**   | एप्पल सिलिकॉन | [Download](https://github.com/Fincept-Corporation/FinceptTerminal/releases/download/v3.3.0/FinceptTerminal-v3.3.0-macOS-arm64.dmg)    |
-| **मैक ओएस**   | इंटेल         | [Download](https://github.com/Fincept-Corporation/FinceptTerminal/releases/download/v3.3.0/FinceptTerminal-v3.3.0-macOS-x64.dmg)      |
-| **लिनक्स**    | x64 (ऐपइमेज)  | [Download](https://github.com/Fincept-Corporation/FinceptTerminal/releases/download/v3.3.0/FinceptTerminal-v3.3.0-Linux-x64.AppImage) |
-| **लिनक्स**    | x64 (डेबियन)  | [Download](https://github.com/Fincept-Corporation/FinceptTerminal/releases/download/v3.3.0/FinceptTerminal-v3.3.0-Linux-x64.deb)      |
-| **खिड़कियाँ** | hshch         | [Download](https://github.com/Fincept-Corporation/FinceptTerminal/releases/download/v3.3.0/FinceptTerminal-v3.3.0-Windows-x64.msi)    |
+ओपन बिल्ड चुनें यदि आप छात्र, शौकिया या शैक्षणिक क्षेत्र से हैं। Enterprise चुनें यदि आप कोई कंपनी हैं, या टर्मिनल से आपकी कमाई होती है: AGPL कॉपीलेफ्ट लागू नहीं होगा, और ओपन बिल्ड की असली लागत आपके अपने डेटा और LLM बिल हैं, जो प्रति टोकन और बिना किसी ऊपरी सीमा के लगते हैं।
 
-[सभी रिलीज़ देखें](https://github.com/Fincept-Corporation/FinceptTerminal/releases)
+| | ओपन सोर्स | **Enterprise** |
+|---|---|---|
+| **लाइसेंस** | AGPL-3.0 — मज़बूत कॉपीलेफ्ट | प्रोप्राइटरी — कोई कॉपीलेफ्ट दायित्व नहीं |
+| **लागत** | मुफ़्त, साथ में अपने डेटा और LLM बिल | ~~$99 / $199 / $299~~ **$10 / $20 / $40** प्रति उपयोगकर्ता/माह — लॉन्च प्राइसिंग |
+| **डेटा** | मुफ़्त सार्वजनिक फीड, अपनी API कुंजियाँ | निजी डेटासेट, लंबा इतिहास, पॉइंट-इन-टाइम |
+| **AI** | अपनी LLM कुंजी | 400–5,000 क्रेडिट शामिल · मल्टी-एजेंट रिसर्च · निजी डेटारूम |
+| **ट्रेडिंग** | पेपर ट्रेडिंग + ब्रोकर इंटीग्रेशन | लाइव ब्रोकर रूटिंग + लाइव एल्गो डिप्लॉयमेंट |
+| **नियंत्रण** | — | SSO/SAML, ऑडिट लॉग, RBAC, SLA-समर्थित सहायता |
 
-<!-- DOWNLOAD_SECTION_END -->
+[**Enterprise देखें →**](https://fincept.in/enterprise) · [पूरी तुलना](https://fincept.in/comparison) · [मूल्य](https://fincept.in/pricing) · [FAQ](https://fincept.in/faq)
 
-* * *
+---
 
-## 🎯क्या हमें अलग करता है
+## Enterprise
 
-**फिनसेप्ट टर्मिनल**एक खुला स्रोत वित्तीय मंच है जो उन लोगों के लिए बनाया गया है जो पारंपरिक सॉफ्टवेयर तक सीमित होने से इनकार करते हैं। हम प्रतिस्पर्धा करते हैं**विश्लेषणात्मक गहराई**और**डेटा पहुंच**-अंदरूनी जानकारी या विशेष फ़ीड पर नहीं।
+छह डेस्क में 41 मॉड्यूल — एजेंटिक रिसर्च, क्वांट लैब और बैकटेस्टिंग, गहन फंडामेंटल रिसर्च, मार्केट्स और एक्ज़ीक्यूशन, मैक्रो और ग्लोबल इंटेलिजेंस, तथा आपका अपना वर्कस्पेस। सब कुछ [700-पृष्ठ के मैनुअल](https://fincept.in/manual) में।
 
-| **विशेषता**          | **फिनसेप्ट टर्मिनल**                                                                                                      | **सोर्स कोड**                                                                                                                                                                                                                                                              |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 📊**एनालिटिक्स**     | पायथन में पूर्ण सीएफए स्तर 1, 2, 3 पाठ्यक्रम • डीसीएफ मॉडल • पोर्टफोलियो अनुकूलन • जोखिम मेट्रिक्स (वीएआर, शार्प)         | [विश्लेषिकी मॉड्यूल](https://github.com/Fincept-Corporation/FinceptTerminal/tree/main/fincept-terminal-desktop/src-tauri/resources/scripts/Analytics)                                                                                                                      |
-| 🤖**एआई एजेंट**      | 20+ निवेशक व्यक्तित्व (बफेट, डेलियो, ग्राहम) • हेज फंड रणनीतियाँ (ब्रिजवाटर, सिटाडेल, पुनर्जागरण) • स्थानीय एलएलएम समर्थन | [एआई एजेंट](https://github.com/Fincept-Corporation/FinceptTerminal/tree/main/fincept-terminal-desktop/src-tauri/resources/scripts/agents)                                                                                                                                  |
-| 🌐**डेटा एक्सेस**    | 100+ कनेक्टर (डीबीनॉमिक्स, पॉलीगॉन, क्रैकेन, पोस्टग्रेएसक्यूएल, काफ्का) • कस्टम एपीआई मैपर • शून्य डेटा प्रतिबंध          | [डेटा एडेप्टर](https://github.com/Fincept-Corporation/FinceptTerminal/tree/main/fincept-terminal-desktop/src/components/tabs/data-sources/adapters)                                                                                                                        |
-| 🔗**क्रॉस-डोमेन**    | आपूर्ति श्रृंखला → पोर्टफोलियो को एकीकृत करें • भूराजनीति → इक्विटी • समुद्री → मैक्रो • आपका डेटा, आपका तरीका            | [कार्यप्रवाह प्रणाली](https://github.com/Fincept-Corporation/FinceptTerminal/tree/main/fincept-terminal-desktop/src/components/tabs/node-editor)                                                                                                                           |
-| 🎨**वर्कफ़्लो**      | विज़ुअल नोड संपादक • पायथन एजेंट • एमसीपी उपकरण • नो-कोड स्वचालन                                                          | [कस्टम नोड्स](https://github.com/Fincept-Corporation/FinceptTerminal/tree/main/fincept-terminal-desktop/src/components/tabs/node-editor)•[एमसीपी सर्वर](https://github.com/Fincept-Corporation/FinceptTerminal/tree/main/fincept-terminal-desktop/src/components/tabs/mcp) |
-| 🚢**बुद्धिमत्ता**    | 3डी समुद्री ट्रैकिंग • उपग्रह निगरानी • भू-राजनीतिक रूपरेखा • व्यापार मार्ग विश्लेषण                                      | [समुद्री टैब](https://github.com/Fincept-Corporation/FinceptTerminal/tree/main/fincept-terminal-desktop/src/components/tabs)                                                                                                                                               |
-| 💰**मूल्य निर्धारण** | मुफ़्त और खुला स्रोत (एजीपीएल-3.0) • वाणिज्यिक लाइसेंस उपलब्ध हैं                                                         | [पूर्ण भंडार](https://github.com/Fincept-Corporation/FinceptTerminal)•[वाणिज्यिक लाइसेंस](https://github.com/Fincept-Corporation/FinceptTerminal/blob/main/docs/COMMERCIAL_LICENSE.md)                                                                                     |
+| | **Exclusive** | **Exclusive+** | **Exclusive Pro** ★ |
+|---|---|---|---|
+| | ~~$99~~ **$10**/उपयोगकर्ता/माह | ~~$199~~ **$20**/उपयोगकर्ता/माह | ~~$299~~ **$40**/उपयोगकर्ता/माह |
+| AI क्रेडिट / माह | 400 | 2,000 | 5,000 |
+| डीप रिसर्च + एजेंट टीम | — | ✓ | ✓ |
+| लाइव ब्रोकर ट्रेडिंग + एल्गो | — | — | ✓ |
 
-* * *
+मासिक बिलिंग, कोई बंधन नहीं, कोई न्यूनतम सीट नहीं, तिमाही पर 10% छूट — लॉन्च प्राइसिंग पर **$120–$480 प्रति उपयोगकर्ता प्रति वर्ष**, जबकि एक Bloomberg सीट लगभग $27,000 की है। **विश्वविद्यालय:** 5 Exclusive Pro सीटें **$699/माह** में। यही पूरी मूल्य सूची है: कोई मोल-भाव वाली कीमत नहीं, कोई अलग वाणिज्यिक लाइसेंस नहीं।
 
-## 🚀 मुख्य क्षमताएँ
+Enterprise के लिए अलग खाता चाहिए — मुफ़्त Fincept लॉगिन वहाँ काम नहीं करते।
 
-<table>
-<tr>
-<td width="50%" valign="top">
+[**खाता बनाएँ**](https://fincept.in/enterprise/signup) · [**डेमो बुक करें**](https://calendly.com/nikultilak/fincept-terminal-demo)
 
-### **📊 सीएफए-लेवल एनालिटिक्स**
+---
 
-![Dashboard](https://raw.githubusercontent.com/Fincept-Corporation/FinceptTerminal/main/images/Dashboard.png)
+## इंस्टॉलेशन
 
-**श्रेणी प्रबंधन**
+**Windows x64**, **Linux x64** (`.run` / `.deb` / `.rpm`) और **macOS (Apple silicon)** के इंस्टॉलर [रिलीज़ पेज](https://github.com/Fincept-Corporation/FinceptTerminal/releases/latest) पर उपलब्ध हैं।
 
--   शार्प अनुपात, वीएआर (95%), अधिकतम गिरावट
--   पोर्टफोलियो अनुकूलन (अधिकतम शार्प)
--   बहु-परिसंपत्ति आवंटन रणनीतियाँ
+**सोर्स से बिल्ड करें** — Linux/macOS: `git clone … && ./setup.sh`। Windows, मैनुअल बिल्ड, पिन किया गया टूलचेन (**CMake 3.27.7 · Ninja 1.11.1 · Qt 6.8.3 · Python 3.11.9**) और समस्या-निवारण **[docs/GETTING_STARTED.md](../GETTING_STARTED.md)** में हैं। संस्करण पिन किए गए हैं — नए या पुराने समर्थित नहीं हैं।
 
-**इक्विटी मूल्यांकन**
+> Enterprise बिल्ड चाहिए? उसके अपने साइन किए हुए इंस्टॉलर Windows, macOS और Linux के लिए Enterprise लॉगिन के पीछे हैं — [यहाँ से लें](https://fincept.in/enterprise)।
 
--   डीसीएफ मॉडल (एफसीएफएफ, एफसीएफई)
--   लाभांश छूट मॉडल
--   गुणक और अवशिष्ट आय
+---
 
-**डेरिवेटिव और जोखिम**
+## ओपन बिल्ड में क्या है
 
--   विकल्प मूल्य निर्धारण और यूनानी
--   हेजिंग रणनीतियाँ
--   उन्नत जोखिम विश्लेषण
+- **एनालिटिक्स** — DCF, पोर्टफोलियो ऑप्टिमाइज़ेशन, VaR/Sharpe, डेरिवेटिव प्राइसिंग, फिक्स्ड इनकम, ऑल्टरनेटिव्स, साथ में 18-मॉड्यूल QuantLib सुइट
+- **AI** — ट्रेडर/निवेशक, आर्थिक और भू-राजनीतिक क्षेत्रों के 37 एजेंट; अपनी कुंजी लाएँ (OpenAI, Anthropic, Gemini, Groq, DeepSeek, OpenRouter, Ollama)
+- **डेटा** — 100+ कनेक्टर: FRED, IMF, विश्व बैंक, DBnomics, AkShare, Polygon, Kraken, Yahoo Finance, सरकारी API
+- **ट्रेडिंग** — क्रिप्टो और इक्विटी फीड, पेपर-ट्रेडिंग इंजन, 16 ब्रोकर इंटीग्रेशन
+- **ऑटोमेशन** — विज़ुअल नोड एडिटर, MCP टूल्स, AI Quant Lab (ML, फैक्टर डिस्कवरी, RL)
+- **वैश्विक इंटेलिजेंस** — समुद्री ट्रैकिंग, भू-राजनीतिक विश्लेषण, संबंध मानचित्रण
 
-</td>
-<td width="50%" valign="top">
+नेटिव C++20 · Qt6 · एम्बेडेड Python 3.11 · एकल बाइनरी · न Node.js, न ब्राउज़र रनटाइम।
 
-### **🤖 एआई-पावर्ड ऑटोमेशन**
+---
 
-![Chat](https://raw.githubusercontent.com/Fincept-Corporation/FinceptTerminal/main/images/Chat.png)
+## यह रिपॉज़िटरी कैसे मेंटेन होती है
 
-**निवेशक एजेंट**
+यह रिपॉज़िटरी **सार्वजनिक रहेगी और हटाई नहीं जाएगी**। जो पहले रिलीज़ हो चुका है, वह रिलीज़ ही रहेगा।
 
--   वॉरेन बफेट, बेंजामिन ग्राहम, सेठ क्लारमन
--   रे डेलियो, जॉर्ज सोरोस, पीटर लिंच
--   20+ प्रसिद्ध निवेश व्यक्तित्व
+अब निरंतर विकास के बजाय **महीने में एक रिलीज़** आती है, क्योंकि टीम का रोज़मर्रा का काम Enterprise पर है। इश्यू और पुल रिक्वेस्ट अब भी देखे जाते हैं, और फ़िक्स मासिक चक्र में आते हैं। सुरक्षा रिपोर्ट: [support@fincept.in](mailto:support@fincept.in)।
 
-**हेज फंड सिस्टम**
+---
 
--   ब्रिजवाटर ऑल वेदर दृष्टिकोण
--   गढ़ बहु-रणनीति मात्रा
--   पुनर्जागरण टेक्नोलॉजीज सांख्यिकीय मॉडल
+## योगदान
 
-**वर्कफ़्लो बिल्डर**
+नए डेटा कनेक्टर, AI एजेंट, एनालिटिक्स मॉड्यूल, C++ स्क्रीन और दस्तावेज़ — सभी का स्वागत है।
 
--   रिएक्टफ्लो विज़ुअल एडिटर
--   100+ एमसीपी उपकरण एकीकरण
--   पायथन एजेंट ऑर्केस्ट्रेशन
+[योगदान गाइड](../CONTRIBUTING.md) · [C++ गाइड](../CPP_CONTRIBUTOR_GUIDE.md) · [Python गाइड](../PYTHON_CONTRIBUTOR_GUIDE.md) · [आर्किटेक्चर](../ARCHITECTURE.md) · [बग रिपोर्ट करें](https://github.com/Fincept-Corporation/FinceptTerminal/issues) · [फीचर सुझाएँ](https://github.com/Fincept-Corporation/FinceptTerminal/discussions)
 
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
+---
 
-### **🌐असीमित डेटा एक्सेस**
+## Fincept से और भी
 
-![Markets](https://raw.githubusercontent.com/Fincept-Corporation/FinceptTerminal/main/images/Markets.png)
+- **[Fincept Data API](https://docs.fincept.in)** — 500+ REST एंडपॉइंट, 4,23,000+ इंस्ट्रूमेंट, 2,000+ स्रोत। किसी भी खाते के साथ मुफ़्त टियर।
+- **[Quantcept](https://quantcept.io)** — बाज़ारों के लिए AI रिसर्च डेस्क: प्राथमिक डेटा, बैकटेस्ट, पोर्टफोलियो, दस्तावेज़ और 24/7 मॉनिटर। मुफ़्त शुरू करें; Alpha 14 $ / Apex 24 $ प्रति 30 दिन।
 
-**100+ डेटा कनेक्टर**
+---
 
--   **डेटाबेस**: PostgreSQL, MySQL, MongoDB, Redis, स्नोफ्लेक
--   **बाज़ार डेटा**: क्रैकेन, पॉलीगॉन.आईओ, अल्फा वैंटेज, याहू फाइनेंस
--   **अर्थशास्त्र**: डीबीनॉमिक्स (100एम+ सीरीज), विश्व बैंक, आईएमएफ, ओईसीडी
--   **स्ट्रीमिंग**: काफ्का, वेबसॉकेट, एमक्यूटीटी
--   **कस्टम एपीआई मैपर**: किसी भी एपीआई को मिनटों में कनेक्ट करें
+## लाइसेंस
 
-</td>
-<td width="50%" valign="top">
+**AGPL-3.0-or-later** — पूरा पाठ [LICENSE](https://github.com/Fincept-Corporation/FinceptTerminal/blob/main/LICENSE) में।
 
-### **🔬 ग्लोबल इंटेलिजेंस**
+निजी उपयोग, सीखने और शैक्षणिक शोध के लिए मुफ़्त। AGPL-3.0 **मज़बूत कॉपीलेफ्ट है, परमिसिव नहीं**: संशोधित बिल्ड वितरित करने पर, या उसे ऐसी सेवा के रूप में चलाने पर जिस तक दूसरे पहुँचते हों, आपको अपने बदलाव उसी लाइसेंस के तहत प्रकाशित करने होंगे। ज़्यादातर कानूनी टीमों के लिए बहस यहीं खत्म हो जाती है — इसीलिए कंपनियाँ **[Enterprise](https://fincept.in/enterprise)** लेती हैं, जो प्रोप्राइटरी है और जिसमें कोई कॉपीलेफ्ट दायित्व नहीं है। निजी, बिना वितरण वाले उपयोग पर कोई दायित्व नहीं है।
 
-![Global Trade](https://raw.githubusercontent.com/Fincept-Corporation/FinceptTerminal/main/images/GlobalTrade.png)
+Fincept इस रिपॉज़िटरी के लिए अब अलग वाणिज्यिक या शैक्षणिक लाइसेंस नहीं बेचता। वाणिज्यिक, संस्थागत और विश्वविद्यालयीय ज़रूरतें ऊपर दिए गए प्रकाशित मूल्यों पर **[Fincept Terminal Enterprise](https://fincept.in/enterprise)** से पूरी होती हैं।
 
-**समुद्री एवं आपूर्ति श्रृंखला**
+**ट्रेडमार्क।** "Fincept", "Fincept Terminal" और Fincept लोगो, Fincept Corporation के ट्रेडमार्क हैं। किसी भी फोर्क, व्युत्पन्न, रीब्रांडेड या वाणिज्यिक उत्पाद में इनके उपयोग हेतु पूर्व लिखित अनुमति आवश्यक है।
 
--   जहाज/विमान/उपग्रह ट्रैकिंग के साथ 3डी ग्लोब
--   वास्तविक समय एआईएस डेटा • व्यापार मार्ग • कक्षीय पथ
+प्रश्न: [support@fincept.in](mailto:support@fincept.in) · [शर्तें](https://fincept.in/terms) · [गोपनीयता](https://fincept.in/privacy)
 
-**भूराजनीतिक विश्लेषण**
+© 2025–2026 Fincept Corporation. सर्वाधिकार सुरक्षित।
 
--   भव्य शतरंज की बिसात रूपरेखा
--   भूगोल मॉडल के कैदी
--   सेंट्रल बैंक और नीति ट्रैकिंग
-
-**इक्विटी अनुसंधान**
-
--   वैश्विक स्टॉक विश्लेषण • वित्तीय विज़ुअलाइज़ेशन
--   विश्लेषक लक्ष्य • मूल्यांकन मेट्रिक्स
-
-</td>
-</tr>
-</table>
-
-* * *
-
-## 🎬 अधिक सुविधाएँ
+---
 
 <div align="center">
 
-|                                          अर्थव्यवस्था विश्लेषिकी                                          |                                             इक्विटी अनुसंधान                                            |                                                  भूराजनीतिक जोखिम                                                 |
-| :-------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------: |
-| ![Economy](https://raw.githubusercontent.com/Fincept-Corporation/FinceptTerminal/main/images/Economy.png) | ![Equity](https://raw.githubusercontent.com/Fincept-Corporation/FinceptTerminal/main/images/Equity.png) | ![Geopolitics](https://raw.githubusercontent.com/Fincept-Corporation/FinceptTerminal/main/images/Geopolitics.png) |
-|                              सकल घरेलू उत्पाद, मुद्रास्फीति, दरें, विकास चक्र                             |                                  वित्तीय विवरण, डीसीएफ, विश्लेषक कवरेज                                  |                                    वैश्विक जोखिम निगरानी एवं परिदृश्य विश्लेषण                                    |
+### **आपकी सोच ही एकमात्र सीमा है। डेटा नहीं।**
 
-</div>
+⭐ **स्टार करें** · 🔄 **साझा करें** · 🤝 **योगदान दें**
 
-* * *
-
-## 📥 Download
-
-**vz. 0.11**| विंडोज़ • मैकओएस • लिनक्स
-
-[![Download](https://img.shields.io/badge/Download-Latest%20Release-brightgreen?style=for-the-badge)](https://github.com/Fincept-Corporation/FinceptTerminal/releases)[![Microsoft Store](https://img.shields.io/badge/Microsoft%20Store-Get%20App-blue?style=for-the-badge&logo=microsoft)](https://apps.microsoft.com/detail/XPDDZR13CXS466?hl=en-US&gl=IN&ocid=pdpshare)
-
-**स्रोत से निर्माण:**
-
-```bash
-git clone https://github.com/Fincept-Corporation/FinceptTerminal.git
-cd FinceptTerminal/fincept-terminal-desktop
-bun install && bun run tauri:dev
-```
-
-**आवश्यकताएं:**
-
--   [अच्छा](https://bun.sh)1.0+
--   [जंग](https://www.rust-lang.org/)(नवीनतम स्थिर)
--   प्लेटफ़ॉर्म-विशिष्ट निर्भरताएँ (देखें[दस्तावेज़/GETTING_STARTED.md](docs/GETTING_STARTED.md))
-
-### macOS इंस्टालेशन (अहस्ताक्षरित बिल्ड)
-
-⚠️**महत्वपूर्ण:**विकास और आर्टिफैक्ट बिल्ड पर Apple डेवलपर प्रमाणपत्र के साथ हस्ताक्षर नहीं किए गए हैं।
-
-**डीएमजी डाउनलोड करने के बाद:**
-
-```bash
-# Remove quarantine flag from DMG
-xattr -cr ~/Downloads/FinceptTerminal-*.dmg
-
-# Open DMG, drag to Applications, then remove quarantine from app
-xattr -cr /Applications/FinceptTerminal.app
-```
-
-**विकल्प:**ऐप पर राइट-क्लिक करें → "ओपन" चुनें → चेतावनी संवाद में "ओपन" पर क्लिक करें।
-
-से आधिकारिक विज्ञप्ति[पेज जारी करता है](https://github.com/Fincept-Corporation/FinceptTerminal/releases)विस्तृत स्थापना निर्देश शामिल करें।
-
-* * *
-
-## 🛣️ आगे क्या है
-
-**Q1 2026:**उन्नत वास्तविक समय स्ट्रीमिंग • उन्नत बैकटेस्टिंग • विकल्प रणनीति बिल्डर • 50+ एआई एजेंट**2026:**पेपर ट्रेडिंग • मल्टी-पोर्टफोलियो प्रबंधन • मोबाइल ऐप • सोशल ट्रेडिंग**भविष्य:**संस्थागत विशेषताएं • प्रोग्रामेटिक एपीआई • एमएल प्रशिक्षण यूआई • व्हाइट-लेबल समाधान
-
-* * *
-
-## 🤝योगदान
-
-हम साथ मिलकर वित्तीय विश्लेषण का भविष्य बना रहे हैं।
-
-**योगदान देना:**नए डेटा कनेक्टर • एआई एजेंट • एनालिटिक्स मॉड्यूल • दस्तावेज़ीकरण • अनुवाद
-
-[योगदान मार्गदर्शिका](docs/CONTRIBUTING.md)•[रिपोर्ट बग](https://github.com/Fincept-Corporation/FinceptTerminal/issues)•[फ़ीचर का अनुरोध करें](https://github.com/Fincept-Corporation/FinceptTerminal/discussions)
-
-* * *
-
-## 🎓विश्वविद्यालयों और शिक्षकों के लिए
-
-**अपनी कक्षा में पेशेवर स्तर का वित्तीय विश्लेषण लाएँ।**
-
--   **$799/माह**20 खातों के लिए
--   फिनसेप्ट डेटा और एपीआई तक पूर्ण पहुंच
--   वित्त, अर्थशास्त्र और डेटा विज्ञान पाठ्यक्रमों के लिए बिल्कुल सही
--   सीएफए पाठ्यक्रम विश्लेषण अंतर्निहित
-
-**इच्छुक?**ईमेल**[support@fincept.in](mailto:support@fincept.in)**आपके संस्थान के नाम के साथ.
-
-[विश्वविद्यालय लाइसेंसिंग विवरण](https://github.com/Fincept-Corporation/FinceptTerminal/blob/main/docs/COMMERCIAL_LICENSE.md)
-
-* * *
-
-## 📜 लाइसेंस
-
-**दोहरा लाइसेंस: एजीपीएल-3.0 (ओपन सोर्स) + वाणिज्यिक**
-
-### खुला स्रोत (एजीपीएल-3.0)
-
--   व्यक्तिगत, शैक्षिक और गैर-व्यावसायिक उपयोग के लिए निःशुल्क
--   नेटवर्क सेवा के रूप में वितरित या उपयोग किए जाने पर साझाकरण संशोधन की आवश्यकता होती है
--   पूर्ण स्रोत कोड पारदर्शिता
-
-### वाणिज्यिक लाइसेंस
-
--   व्यावसायिक उपयोग के लिए या व्यावसायिक रूप से फिनसेप्ट डेटा/एपीआई तक पहुंचने के लिए आवश्यक है
--   संपर्क करना:**[support@fincept.in](mailto:support@fincept.in)**
--   विवरण:[वाणिज्यिक लाइसेंस गाइड](https://github.com/Fincept-Corporation/FinceptTerminal/blob/main/docs/COMMERCIAL_LICENSE.md)
-
-### ट्रेडमार्क
-
-"फिनसेप्ट टर्मिनल" और "फिनसेप्ट" फिनसेप्ट कॉर्पोरेशन के ट्रेडमार्क हैं।
-
-© 2025-2026 फिनसेप्ट कॉर्पोरेशन। सर्वाधिकार सुरक्षित।
-
-* * *
-
-<div align="center">
-
-### **आपकी सोच ही एकमात्र सीमा है. डेटा नहीं है.**
-
-<div align="center">
-<a href="https://star-history.com/#Fincept-Corporation/FinceptTerminal&Date">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Fincept-Corporation/FinceptTerminal&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Fincept-Corporation/FinceptTerminal&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Fincept-Corporation/FinceptTerminal&type=Date" />
- </picture>
-</a>
-</div>
-
-[![Email](https://img.shields.io/badge/Email-support@fincept.in-blue)](mailto:support@fincept.in)
-
-⭐**तारा**• 🔄**शेयर करना**• 🤝**योगदान देना**
+<sub>मूल अंग्रेज़ी संस्करण: <a href="../../README.md">README.md</a></sub>
 
 </div>

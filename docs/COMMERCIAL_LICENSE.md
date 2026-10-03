@@ -1,77 +1,86 @@
-# Commercial & Educational Licensing
+# Fincept Terminal — Licensing
 
-## Overview
-
-Fincept Terminal is dual-licensed under **AGPL-3.0** (free for personal/educational use) and **Commercial License** (required for business use).
-
-Commercial licensing is required to access Fincept Data Sources and APIs for business use.
-
----
-
-## Do I Need a Commercial License?
-
-**Free (No License Needed):** Personal use & learning, Individual students, Open source contributions, Using your own data sources
-
-**Commercial License Required:** Any business use, Startups (even $0 revenue), Internal company use, Using Fincept Data/APIs commercially, SaaS/Cloud platforms, White-label/Reselling
+**Version:** 3.0
+**In effect from:** August 11, 2026
+**Supersedes:** Commercial License v2.0 (April 30, 2026), which is withdrawn in full
+**Licensor:** Fincept Corporation (a company organized under the laws of India)
+**Contact:** support@fincept.in · https://fincept.in
 
 ---
 
-## Pricing
+## 1. Summary
 
-**Commercial License - $10,200/year**
-- Fincept Data & API Access (Full access)
-- 65,000 credits/month (resets monthly)
-- Additional credits available for purchase
+This repository — **Fincept Terminal, open-source edition** — is licensed under the **GNU Affero General Public License v3.0 or later (AGPL-3.0-or-later)**, and under no other licence.
 
-**Technical Support (Optional) - $149/month**
-- Priority support, Direct technical assistance, Faster response times
+Fincept Corporation **no longer sells a separate commercial, enterprise, or academic licence for this repository.** The previous dual-licensing arrangement is discontinued. Commercial, institutional, and university needs are now served by a separate product, **[Fincept Terminal Enterprise](https://fincept.in/enterprise)**, at published prices.
 
-**University & Academic - $799/month**
-- 20 accounts for teaching & research
-- Fincept Data Access included
-- For accredited educational institutions only
-
-**Custom Enterprise - Contact for pricing**
-- Tailored requirements, Custom integrations, Higher credit limits, Dedicated support, Custom SLAs
+Full AGPL-3.0 text: [`/LICENSE`](../LICENSE).
 
 ---
 
-## Credits
+## 2. What AGPL-3.0 means in practice
 
-Credits are used for Fincept Data Sources and API calls.
+AGPL-3.0 is **strong copyleft**, not a permissive licence. Read this section before you build on the code.
 
-- **Commercial:** 65,000/month
-- **University:** Included in plan
-- **Custom:** Based on agreement
+| What you're doing | What AGPL-3.0 requires |
+|---|---|
+| Running the terminal on your own machine, modified or not, without distributing it | Nothing. No obligations. |
+| Distributing a build — internally or externally, modified or not | Provide the complete corresponding source of your version under AGPL-3.0. |
+| Running a modified version as a network service that other people reach | Provide the complete corresponding source of your version to those users, under AGPL-3.0 (AGPL § 13). |
+| Linking it into, or building it into, another product you ship | That product is a derivative work and falls under AGPL-3.0. |
 
-When credits run out: Purchase additional credits OR wait for monthly reset.
+Removing, replacing, or rewiring Fincept's APIs and data integrations does **not** change any of the above. The obligation attaches to the codebase, not to the data sources.
 
----
-
-## How to Get Started
-
-1. **Contact Us** - Email support@fincept.in with company name, use case, and number of users
-2. **Agreement** - Review and sign license agreement, complete payment
-3. **Access** - Receive credentials and access Fincept Data & APIs
+There is no paid exemption from these terms for this repository. If AGPL-3.0 does not work for your organization, the answer is Enterprise, which is proprietary and carries no copyleft obligations to manage.
 
 ---
 
-## Contact
+## 3. Commercial, institutional and academic use
 
-**Email:** support@fincept.in | **Phone:** +91-9773034108 | **Website:** https://fincept.in
+**[Fincept Terminal Enterprise](https://fincept.in/enterprise)** is a separate, closed-source product. It is not this codebase, is not published here, and is not covered by AGPL-3.0.
+
+| | Price |
+|---|---|
+| **Exclusive** | $99 / user / month |
+| **Exclusive+** | $199 / user / month |
+| **Exclusive Pro** | $299 / user / month |
+| **Academic bundle** — 5 Exclusive Pro seats | $699 / month |
+
+Monthly billing, no annual lock-in, no seat minimum, 15% off on quarterly. **These are the only prices offered.** There is no custom, negotiated, or enterprise-tier pricing, and no bespoke licensing track.
+
+- Plans and full feature breakdown: [fincept.in/pricing](https://fincept.in/pricing)
+- Comparison against the open edition: [fincept.in/comparison](https://fincept.in/comparison)
+- Create an account: [fincept.in/enterprise/signup](https://fincept.in/enterprise/signup)
+- Universities and academic institutions: email **support@fincept.in**
+
+Enterprise runs on a separate backend with separate user records. A free Fincept account does not sign in to it.
 
 ---
 
-## Terms
+## 4. Trademarks
 
-Licenses are non-transferable. Annual licenses renew yearly. Refunds within 30 days if credits are unused. Fincept Corporation reserves right to modify pricing.
+"Fincept", "Fincept Terminal", "Fincept Corporation", and the Fincept logo are trademarks of Fincept Corporation. Trademark rights are **not** granted by AGPL-3.0 and are expressly reserved.
 
-## Trademark
+Use of these marks in any forked, derivative, rebranded, or successor product — and any use in marketing, sales material, or product comparison by a for-profit competitor — requires prior written permission from Fincept Corporation. Removing or replacing the marks in a fork does not affect the AGPL-3.0 obligations attaching to the code.
 
-"Fincept", "Fincept Terminal", and the Fincept logo are trademarks of Fincept Corporation. Use requires written permission.
+AGPL-3.0 § 7(e) permits the licensor to require removal of licensor trademarks from modified versions; Fincept Corporation exercises that right. Rebrand your fork.
 
 ---
 
-**Last Updated:** February 2026
+## 5. Warranty and liability
 
-For full license terms, see [LICENSE](../LICENSE).
+The Software is provided **"as is"**, without warranty of any kind, express or implied, as set out in AGPL-3.0 §§ 15 and 16. Nothing in the Software, and no output generated by it, constitutes investment, legal, tax, accounting, or financial advice. It is not warranted for any use where failure could cause financial loss or regulatory breach.
+
+---
+
+## 6. Effect of this version
+
+This document replaces the Fincept Terminal Commercial License v2.0 in its entirety. The commercial-licence requirement, audit and self-attestation obligations, liquidated-damages schedule, and joint-and-several-liability provisions set out in that version are **withdrawn and are not asserted against any user of this repository.**
+
+Copyright in the Software remains with Fincept Corporation. AGPL-3.0 remains in force, and its terms are enforceable as written.
+
+---
+
+**Questions:** support@fincept.in · [Terms](https://fincept.in/terms) · [Privacy](https://fincept.in/privacy)
+
+© 2025–2026 Fincept Corporation. Licensed under AGPL-3.0-or-later.

@@ -1,18 +1,25 @@
 ---
-name: ✨ Improvement Suggestion
-about: Suggest enhancements or improvements to existing features in Fincept Terminal
+name: Improvement Suggestion
+about: Suggest an enhancement to an existing feature in Fincept Terminal
 title: "[IMPROVE] "
 labels: "type:enhancement, status:triage"
 assignees: ""
 ---
 
-## What feature needs improvement?
-<!-- Identify the existing feature or area -->
+<!--
+Planning to send a PR for this? Please read .github/CONTRIBUTING.md first.
+A maintainer must add `good-first-issue`, `help-wanted`, or `scope:approved`
+to this issue before PRs against it will be accepted. Unsolicited PRs for
+string tweaks, wording changes, or single-line edits are closed on sight.
+-->
+
+## Which feature needs improvement?
+<!-- Name the screen or feature (e.g., Dashboard, Crypto Trading, News) -->
 
 
 ## How should it be improved?
-<!-- Describe your suggested enhancement and why it's better -->
+<!-- Describe what change would make it better and why -->
 
 
-## Any additional context?
-<!-- Optional: mockups, examples, alternatives, etc. -->
+## Additional context
+<!-- Mockups, examples, or alternatives -->
