@@ -2,7 +2,7 @@
 
 #include "autotrade/AutotradeApi.h"
 #include "autotrade/ConditionsPanel.h"
-#include "autotrade/IntradayPanel.h"
+#include "autotrade/PlatformStrategiesPanel.h"
 #include "autotrade/StrategiesPanel.h"
 #include "network/http/HttpClient.h"
 #include "ui/theme/Theme.h"
@@ -218,12 +218,12 @@ void AutotradeScreen::build_ui() {
     splitter->setStretchFactor(0, 1);
     splitter->setStretchFactor(1, 1);
     tabs_->addTab(splitter, QString());
+    platform_ = new PlatformStrategiesPanel(tabs_);
+    tabs_->addTab(platform_, QString());
     strategies_ = new StrategiesPanel(tabs_);
     tabs_->addTab(strategies_, QString());
     conditions_ = new ConditionsPanel(tabs_);
     tabs_->addTab(conditions_, QString());
-    intraday_ = new IntradayPanel(tabs_);
-    tabs_->addTab(intraday_, QString());
     root->addWidget(tabs_, 1);
 }
 
@@ -283,8 +283,8 @@ void AutotradeScreen::apply_styles() {
         strategies_->apply_styles();
     if (conditions_)
         conditions_->apply_styles();
-    if (intraday_)
-        intraday_->apply_styles();
+    if (platform_)
+        platform_->apply_styles();
 
     set_connected(connected_, QString());
 }
@@ -293,9 +293,9 @@ void AutotradeScreen::retranslate() {
     title_lbl_->setText(tr("AUTOTRADE"));
     tabs_->setTabText(0, tr("OVERVIEW"));
     tabs_->setTabText(1, tr("STRATEGIES"));
-    tabs_->setTabText(2, tr("CONDITIONS"));
-    tabs_->setTabText(3, tr("INTRADAY"));
-    intraday_->retranslate();
+    tabs_->setTabText(2, tr("ROTATION MODELS"));
+    tabs_->setTabText(3, tr("CONDITIONS"));
+    platform_->retranslate();
     conditions_->retranslate();
     strategies_->retranslate();
     subtitle_lbl_->setText(tr("IBKR paper stack via %1").arg(api_base_url()));

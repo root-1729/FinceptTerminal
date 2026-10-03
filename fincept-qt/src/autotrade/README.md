@@ -4,8 +4,12 @@ Adds an **AUTOTRADE** screen to the Qt Fincept Terminal for the autotrade stack
 (`root-1729/autotrade`, running on k3s). Branch `autotrade-qt`, based on upstream `main`.
 
 - **OVERVIEW:** service health, IB account summary, positions, open orders, stock screener.
-- **STRATEGIES:** every TQQQ/SQQQ rotation model with live paper returns and backtest stats;
-  select one to see its daily history and the trades it implies on $100k.
+- **STRATEGIES:** every strategy in the autotrade registry (stage, whether it may send orders,
+  account, live vs backtest, drawdown, latest decision, shadow agreement); select one for its
+  daily results vs backtest, the latest day's decisions, fills and stage history.
+- **ROTATION MODELS:** every TQQQ/SQQQ rotation model with live paper returns and backtest stats;
+  select one to see its daily history and the trades it implies on $100k (research view).
+- **CONDITIONS:** today's market/macro conditions against each strategy's history.
 - **Backtesting tab provider "Autotrade":** backtest, optimise and walk-forward any rotation
   model (or custom parameters) on the cluster's research service (`/research`), with the
   tab's own charts and tables. Script: `scripts/Analytics/backtesting/autotrade/`.
@@ -19,8 +23,8 @@ orders: the autotrade execution engine is the only thing that trades.
 |---|---|
 | `AutotradeApi.*` | api-gateway base URL |
 | `AutotradeScreen.*` | the screen and its OVERVIEW tab |
-| `StrategiesPanel.*` | the STRATEGIES tab |
-| `IntradayPanel.*` | the INTRADAY tab (intraday momentum on SPY: decisions, fills, real vs backtest) |
+| `PlatformStrategiesPanel.*` | the STRATEGIES tab (all registered strategies; replaced the INTRADAY tab) |
+| `StrategiesPanel.*` | the ROTATION MODELS tab |
 | `ConditionsPanel.*` | the CONDITIONS tab (market/macro conditions vs the strategy's history) |
 | `autotrade.cmake` | adds the sources to the `FinceptTerminal` target; lists the upstream hooks |
 
@@ -43,7 +47,8 @@ First match wins:
 `deploy/README.md`); it needs `192.168.0.36 autotrade.lan` in `/etc/hosts`.
 
 Endpoints used: `/health`, `/account/summary`, `/positions`, `/orders`, `/screener/configs`,
-`/screener/latest`, `/screener/run`, `/rotation/strategies`, `/rotation/history`.
+`/screener/latest`, `/screener/run`, `/platform/strategies`, `/platform/strategies/{id}`,
+`/rotation/strategies`, `/rotation/history`, `/research/conditions`.
 
 ## Build (macOS)
 

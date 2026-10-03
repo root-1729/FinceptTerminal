@@ -13,7 +13,7 @@ class QTimer;
 namespace fincept::autotrade {
 
 class ConditionsPanel;
-class IntradayPanel;
+class PlatformStrategiesPanel;
 class StrategiesPanel;
 
 /// Autotrade dashboard: live view of the autotrade stack through its api-gateway
@@ -87,9 +87,9 @@ class AutotradeScreen : public QWidget {
     int scan_polls_left_ = 0;
     bool connected_ = false;
     QTabWidget* tabs_ = nullptr;
+    PlatformStrategiesPanel* platform_ = nullptr;
     StrategiesPanel* strategies_ = nullptr;
     ConditionsPanel* conditions_ = nullptr;
-    IntradayPanel* intraday_ = nullptr;
     bool restyling_ = false;
 };
 
