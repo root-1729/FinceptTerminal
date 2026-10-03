@@ -14,6 +14,7 @@ namespace fincept::autotrade {
 
 class ConditionsPanel;
 class AccountsPanel;
+class OptionsPanel;
 class PlatformStrategiesPanel;
 class StrategiesPanel;
 
@@ -90,6 +91,7 @@ class AutotradeScreen : public QWidget {
     QTabWidget* tabs_ = nullptr;
     PlatformStrategiesPanel* platform_ = nullptr;
     AccountsPanel* accounts_ = nullptr;
+    OptionsPanel* options_ = nullptr;
     StrategiesPanel* strategies_ = nullptr;
     ConditionsPanel* conditions_ = nullptr;
     bool restyling_ = false;
