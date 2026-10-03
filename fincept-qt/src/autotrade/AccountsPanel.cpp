@@ -147,7 +147,8 @@ void AccountsPanel::retranslate() {
                                            tr("MARKET VALUE"), tr("UNREALISED P&L"), tr("STRATEGY"), tr("UPDATED")});
     note_lbl_->setText(tr("Read-only. Positions belong to the strategy that lists the symbol in its registry entry; "
                           "an UNATTRIBUTED position is held by no strategy (the watchdog alerts on it). "
-                          "Tastytrade and Alpaca appear once their adapters are built."));
+                          "IBKR from the position synchroniser; Tastytrade and Alpaca from the market data hub "
+                          "(every 5 minutes)."));
     if (summary_lbl_->text().isEmpty())
         summary_lbl_->setText(tr("Loading…"));
 }
