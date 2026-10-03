@@ -3,6 +3,7 @@
 #include "autotrade/AutotradeApi.h"
 #include "autotrade/ConditionsPanel.h"
 #include "autotrade/AccountsPanel.h"
+#include "autotrade/OptionsPanel.h"
 #include "autotrade/PlatformStrategiesPanel.h"
 #include "autotrade/StrategiesPanel.h"
 #include "network/http/HttpClient.h"
@@ -223,6 +224,8 @@ void AutotradeScreen::build_ui() {
     tabs_->addTab(platform_, QString());
     accounts_ = new AccountsPanel(tabs_);
     tabs_->addTab(accounts_, QString());
+    options_ = new OptionsPanel(tabs_);
+    tabs_->addTab(options_, QString());
     strategies_ = new StrategiesPanel(tabs_);
     tabs_->addTab(strategies_, QString());
     conditions_ = new ConditionsPanel(tabs_);
@@ -290,6 +293,8 @@ void AutotradeScreen::apply_styles() {
         platform_->apply_styles();
     if (accounts_)
         accounts_->apply_styles();
+    if (options_)
+        options_->apply_styles();
 
     set_connected(connected_, QString());
 }
@@ -299,10 +304,12 @@ void AutotradeScreen::retranslate() {
     tabs_->setTabText(0, tr("OVERVIEW"));
     tabs_->setTabText(1, tr("STRATEGIES"));
     tabs_->setTabText(2, tr("ACCOUNTS"));
-    tabs_->setTabText(3, tr("ROTATION MODELS"));
-    tabs_->setTabText(4, tr("CONDITIONS"));
+    tabs_->setTabText(3, tr("OPTIONS"));
+    tabs_->setTabText(4, tr("ROTATION MODELS"));
+    tabs_->setTabText(5, tr("CONDITIONS"));
     platform_->retranslate();
     accounts_->retranslate();
+    options_->retranslate();
     conditions_->retranslate();
     strategies_->retranslate();
     subtitle_lbl_->setText(tr("IBKR paper stack via %1").arg(api_base_url()));
