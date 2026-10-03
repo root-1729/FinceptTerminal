@@ -23,6 +23,7 @@ orders: the autotrade execution engine is the only thing that trades.
 |---|---|
 | `AutotradeApi.*` | api-gateway base URL |
 | `AutotradeScreen.*` | the screen and its OVERVIEW tab |
+| `AccountsPanel.*` | the ACCOUNTS tab (broker accounts, positions attributed to strategies) |
 | `PlatformStrategiesPanel.*` | the STRATEGIES tab (all registered strategies; replaced the INTRADAY tab) |
 | `StrategiesPanel.*` | the ROTATION MODELS tab |
 | `ConditionsPanel.*` | the CONDITIONS tab (market/macro conditions vs the strategy's history) |
