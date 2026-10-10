@@ -18,6 +18,7 @@ target_sources(FinceptTerminal PRIVATE
     ${CMAKE_CURRENT_LIST_DIR}/AutotradeScreen.cpp
     ${CMAKE_CURRENT_LIST_DIR}/AccountsPanel.cpp
     ${CMAKE_CURRENT_LIST_DIR}/OptionsPanel.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/ScreenerPanel.cpp
     ${CMAKE_CURRENT_LIST_DIR}/OptionsRiskPanel.cpp
     ${CMAKE_CURRENT_LIST_DIR}/PlatformStrategiesPanel.cpp
     ${CMAKE_CURRENT_LIST_DIR}/StrategiesPanel.cpp

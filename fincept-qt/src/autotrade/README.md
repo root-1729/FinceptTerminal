@@ -24,6 +24,7 @@ orders: the autotrade execution engine is the only thing that trades.
 | `AutotradeApi.*` | api-gateway base URL |
 | `AutotradeScreen.*` | the screen and its OVERVIEW tab |
 | `OptionsPanel.*` | the OPTIONS tab (OptionWorkstation embedded with Qt WebEngine, or opened in the browser) |
+| `ScreenerPanel.*` | the SCREENER tab (research screener view at autotrade.lan/research/ui, embedded the same way) |
 | `AccountsPanel.*` | the ACCOUNTS tab (broker accounts, positions attributed to strategies) |
 | `PlatformStrategiesPanel.*` | the STRATEGIES tab (all registered strategies; replaced the INTRADAY tab) |
 | `StrategiesPanel.*` | the ROTATION MODELS tab |

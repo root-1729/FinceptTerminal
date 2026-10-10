@@ -4,6 +4,7 @@
 #include "autotrade/ConditionsPanel.h"
 #include "autotrade/AccountsPanel.h"
 #include "autotrade/OptionsPanel.h"
+#include "autotrade/ScreenerPanel.h"
 #include "autotrade/OptionsRiskPanel.h"
 #include "autotrade/PlatformStrategiesPanel.h"
 #include "autotrade/StrategiesPanel.h"
@@ -233,6 +234,8 @@ void AutotradeScreen::build_ui() {
     tabs_->addTab(strategies_, QString());
     conditions_ = new ConditionsPanel(tabs_);
     tabs_->addTab(conditions_, QString());
+    screener_ = new ScreenerPanel(tabs_);
+    tabs_->addTab(screener_, QString());
     root->addWidget(tabs_, 1);
 }
 
@@ -300,6 +303,8 @@ void AutotradeScreen::apply_styles() {
         options_->apply_styles();
     if (options_risk_)
         options_risk_->apply_styles();
+    if (screener_)
+        screener_->apply_styles();
 
     set_connected(connected_, QString());
 }
@@ -313,11 +318,13 @@ void AutotradeScreen::retranslate() {
     tabs_->setTabText(4, tr("OPTIONS RISK"));
     tabs_->setTabText(5, tr("ROTATION MODELS"));
     tabs_->setTabText(6, tr("CONDITIONS"));
+    tabs_->setTabText(7, tr("SCREENER"));
     platform_->retranslate();
     accounts_->retranslate();
     options_->retranslate();
     options_risk_->retranslate();
     conditions_->retranslate();
+    screener_->retranslate();
     strategies_->retranslate();
     subtitle_lbl_->setText(tr("IBKR paper stack via %1").arg(api_base_url()));
     refresh_btn_->setText(tr("REFRESH"));
